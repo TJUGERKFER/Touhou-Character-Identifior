@@ -1,4 +1,5 @@
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <style>
 *{
 font-family:"Microsoft Yahei UI","Segoi UI";
@@ -296,6 +297,22 @@ function end(){
 		document.getElementById("showbest").innerHTML="宁也算是东方众？"
 		document.getElementById("showother").innerHTML=" "
 	}
+}
+</script>
+<script>
+
+if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) 
+|| /Android/i.test(navigator.userAgent)
+|| /BlackBerry/i.test(navigator.userAgent)
+|| /IEMobile/i.test(navigator.userAgent)
+|| (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+    if(/iPad/i.test(navigator.userAgent)){
+        window.location.href="wap.html";
+    }else{
+        window.location.href="wap.html";
+    }
+}else{
+
 }
 </script>
 	</body>
