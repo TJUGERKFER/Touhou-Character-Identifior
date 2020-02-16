@@ -21,12 +21,12 @@ body{
 	background-size: 100% 100%;
 }
 #pagetitle{
-	font-size:36px;
+	font-size:34px;
 	width:100%;
 	margin-top:12%;
 }
 #copyright{
-	font-size:18px;
+	font-size:16px;
 	position:fixed;
 	width:100%;
 	bottom:18px;
@@ -82,8 +82,8 @@ width:74px;
     <![endif]-->
 
 <div id="background-image-container">
-	<div id="pagetitle">神奇的车万角色鉴定系统</div>
-	<h3 id="subtitle">没见过的的东方角色？回答几个问题即可轻松了解！</h3>
+	<div id="pagetitle">神奇车万角色鉴定系统</div>
+	<h3 id="subtitle">没见过的的东方角色？几个问题让你轻松初识！</h3>
 	<p id="q">问题:</p>
 <p id="question"> </p>
 <br/>
@@ -96,6 +96,7 @@ width:74px;
 <div>
 <p id="showbest"></p>
 <p id="showother"></p>
+<p id="wikitip"></p>
 <a id="firstpage" href="http://thbwiki.cc"></a>
 <a id="secondpage" href="http://thbwiki.cc"></a>
 <a id="thirdpage" href="http://thbwiki.cc"></a>
@@ -323,7 +324,8 @@ function end(){
     }
 
 	document.getElementById("showbest").innerHTML="她应该是:"+bestname
-	document.getElementById("showother").innerHTML="上面的答案不对？那还可能是:"+secondname+"或者"+thirdname
+	document.getElementById("showother").innerHTML=" 上面的答案不对？那还可能是:"+secondname+"或者"+thirdname
+	document.getElementById("wikitip").innerHTML="你可以查看thbwiki上的角色介绍:"
 	document.getElementById("firstpage").href="https://thbwiki.cc/"+bestname
 	document.getElementById("firstpage").innerHTML=bestname
 	document.getElementById("secondpage").href="https://thbwiki.cc/"+secondname
@@ -336,6 +338,7 @@ function end(){
 		document.getElementById("firstpage").innerHTML=" "
 		document.getElementById("secondpage").innerHTML=" "
 		document.getElementById("thirdpage").innerHTML=" "
+		document.getElementById("wikitip").innerHTML=" "
 	}
 }
 </script>
