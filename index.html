@@ -32,7 +32,37 @@ body{
 	bottom:4px;
 	box-sizing: border-box;
 	overflow:hidden;
-	color:rgba(67,120,150,0.8);
+	color:rgba(67,120,150,0.9);
+}
+.button{
+	border:1px solid #66c2ff;
+	border-radius:18px 18px 18px 18px;
+	display:inline-block;
+	margin:auto;
+	margin-top:3px;
+	padding:auto;
+	padding-top:3px;
+	width:54px;
+	height:32px;
+	background-color:rgba(46,158,250,0.1);
+	user-select: none;
+}
+.button:hover{
+	background-color:rgba(46,158,250,0.4);
+}
+#reset{
+margin-top:7px;
+}
+#btnset{
+display:block;
+margin:auto;
+padding:auto;
+}
+#dontknow{
+width:110px;
+}
+#reset{
+width:74px;
 }
 </style>
 <title>车万角色鉴定系统</title>
@@ -57,10 +87,12 @@ body{
 	<p>问题:</p>
 <p id="question"> </p>
 <br/>
-<button type="button" onclick="yes()">是</button>
-<button type="button" onclick="noidea()">不知道/不确定</button>
-<button type="button" onclick="no()">否</button><br>
-<button type="button" onclick="reload()">重新开始</button>
+<div id="btnset">
+<div class="button" onclick="yes()">是</div>
+<div class="button" id="dontknow" onclick="noidea()">不知道/不确定</div>
+<div class="button" onclick="no()">否</div><br>
+<div class="button" id="reset" onclick="reload()">重新开始</div>
+</div>
 <div>
 <p id="showbest"></p>
 <p id="showother"></p>
@@ -71,9 +103,10 @@ body{
 <br/>
 <br/>
 <div id="copyright">
-<p>Powered By <a href="http://http://tjbaka.top">TJUGERKFER</a></p> 
-<p>技术支持:WinslowEric BbAa</p>
+<p>Powered By <a href="http://tjbaka.top">TJUGERKFER</a></p> 
+<p> 技术支持:<a href="https://www.winsloweric.cn">WinslowEric</a> BbAa</p>
 <p id="total"></p>
+</div>
 </div>
 </div>
 <script>
@@ -234,6 +267,9 @@ var 姬海棠果 = new girl("姬海棠果",false,false,false,false,false,false,f
     nowquestion=1
     document.getElementById("question").innerHTML=question[nowquestion]
 	document.getElementById("total").innerHTML="当前本系统可以鉴定"+genso.length+"个角色！"
+	document.getElementById("firstpage").innerHTML=" "
+	document.getElementById("secondpage").innerHTML=" "
+	document.getElementById("thirdpage").innerHTML=" "
 }
 function yes(){
     for (i=0;i<genso.length;i++){
@@ -257,10 +293,10 @@ function noidea(){
     next()
 }
 function next(){
+	nowquestion++
     if (nowquestion==8){
         end()
-    } else {
-        nowquestion++
+    } else if (nowquestion<8){
         document.getElementById("question").innerHTML=question[nowquestion]
     }
 }
