@@ -148,9 +148,9 @@ function reload(){
     var 宇佐见堇子 = new girl("宇佐见堇子",false,true,false,true,false,false,false,false,false);
     //弹幕小数点
     var 桑妮米尔克 = new girl("桑妮米尔克",true,true,true,true,true,true,false,false,false);
-    var 露娜切露德 = new girl("露娜切露德",true,true,false,false,true,true,false,false,false);
-    var 斯塔萨菲雅 = new girl("斯塔萨菲雅",false,false,false,false,true,true,false,false,false);
-    var 姬海棠果 = new girl("姬海棠果",false,false,false,false,false,false,false,false,false);
+    var 露娜切露德 = new girl("露娜切露德",true,true,false,false,true,true,false,false,false,"");
+    var 斯塔萨菲雅 = new girl("斯塔萨菲雅",false,false,false,false,true,true,false,false,false,"请问她的裙子上有星星吗？");
+    var 姬海棠果 = new girl("姬海棠果",false,false,false,false,false,false,false,false,false,"请问她的翅膀是黑色的吗？");
     for(i=1;i<genso.length;i++){
         genso[i].score=0
     }
