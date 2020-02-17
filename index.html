@@ -1,76 +1,91 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <style>
-*{
-font-family:"Microsoft Yahei UI","Segoi UI";
-text-align:center;
-}
-body{
-	padding:0;
-	margin:0;
-}
-#background-image-container {
-	position:fixed;
-	margin: 0px auto;
-	padding: 0px;
-	width:100%;
-	height: 100%;
-	background: url(https://i.loli.net/2020/02/16/w1qFDnAcyQ7gzpI.png);
-	filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
-	-moz-background-size: 100% 100%;
-	background-size: 100% 100%;
-}
-#pagetitle{
-	font-size:36px;
-	width:100%;
-	margin-top:12%;
-	color:rgb(67,120,150);
-}
-#copyright{
-	font-size:18px;
-	position:fixed;
-	width:100%;
-	bottom:4px;
-	box-sizing: border-box;
-	overflow:hidden;
-	color:rgba(67,120,150,0.9);
-	line-height:5px;
-}
-.button{
-	line-height:40px;
-	border:1px solid #66c2ff;
-	border-radius:25px 25px 25px 25px;
-	display:inline-block;
-	margin:auto;
-	margin-top:3px;
-	padding:auto;
-	padding-top:3px;
-	width:80px;
-	height:48px;
-	background-color:rgba(46,158,250,0.1);
-	text-align:center;
-	user-select:none;
-}
-.button:hover{
-	background-color:rgba(46,158,250,0.4);
-}
-#reset{
-	width:90px;
-	margin-top:7px;
-}
-#btnset{
-	display:block;
-	margin:auto;
-	padding:auto;
-}
-	#dontknow{
-	width:120px;
-}
+    * {
+        font-family: "Microsoft Yahei UI", "Segoi UI";
+        text-align: center;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    #background-image-container {
+        position: fixed;
+        margin: 0px auto;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        background: url(https://i.loli.net/2020/02/16/w1qFDnAcyQ7gzpI.png);
+        filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+        -moz-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+
+    #pagetitle {
+        font-size: 36px;
+        width: 100%;
+        margin-top: 7.5%;
+        color: rgb(67, 120, 150);
+    }
+
+    #copyright {
+        font-size: 18px;
+        position: fixed;
+        width: 100%;
+        bottom: 4px;
+        box-sizing: border-box;
+        overflow: hidden;
+        color: rgba(67, 120, 150, 0.9);
+        line-height: 5px;
+    }
+
+    .button {
+        line-height: 40px;
+        border: 1px solid #66c2ff;
+        border-radius: 25px 25px 25px 25px;
+        display: inline-block;
+        margin: auto;
+        margin-top: 3px;
+        padding: auto;
+        padding-top: 3px;
+        width: 80px;
+        height: 48px;
+        background-color: rgba(46, 158, 250, 0.1);
+        text-align: center;
+        user-select: none;
+    }
+
+    .button:hover {
+        background-color: rgba(46, 158, 250, 0.4);
+    }
+
+    #reset {
+        width: 90px;
+        margin-top: 7px;
+    }
+
+    #btnset {
+        display: block;
+        margin: auto;
+        padding: auto;
+    }
+
+    #dontknow {
+        width: 120px;
+    }
 </style>
 <title>车万角色鉴定系统</title>
 <script src="https://tjugerkfer.github.io/Touhou-Character-Identifior/identifior.js"></script>
-<body onload="reload()">
-	<!--[if lt IE 9]>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        reload();
+    });
+</script>
+
+<body>
+    <!--[if lt IE 9]>
       <div class="aya-hate-stupid-ie">
         <div class="ie-container">
           <h1>Error: IE Browser detected | 您使用的浏览器过低，被城管踢出了幻想乡</h1>
@@ -84,48 +99,49 @@ body{
       </div>
     <![endif]-->
 
-<div id="background-image-container">
-	<div id="pagetitle">神奇车万角色鉴定系统</div>
-	<h4 id="subtitle">没见过的的东方角色？几个问题让你轻松初识！</h4>
-	<p id="q">问题:</p>
-<p id="question"> </p>
-<br/>
-<div id="btnset">
-<div class="button" onclick="yes()">是</div>
-<div class="button" id="dontknow" onclick="noidea()">不知道/不确定</div>
-<div class="button" onclick="no()">否</div><br>
-<div class="button" id="reset" onclick="reload()">重新开始</div>
-</div>
-<div>
-<p id="showbest"></p>
-<p id="showother"></p>
-<p id="wikitip"></p>
-<a id="firstpage" href="http://thbwiki.cc"></a>
-<a id="secondpage" href="http://thbwiki.cc"></a>
-<a id="thirdpage" href="http://thbwiki.cc"></a>
-<br/>
-<br/>
-<br/>
-<div id="copyright">
-<p>Powered By <a href="http://tjbaka.top">TJUGERKFER</a></p> 
-<p> 技术支持:<a href="https://www.winsloweric.cn">WinslowEric</a> BbAa</p>
-<p id="total"></p>
-</div>
-</div>
-</div>
-<script>
-if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) 
-|| /Android/i.test(navigator.userAgent)
-|| /BlackBerry/i.test(navigator.userAgent)
-|| /IEMobile/i.test(navigator.userAgent)
-|| (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
-    if(/iPad/i.test(navigator.userAgent)){
-        window.location.href="wap.html";
-    }else{
-        window.location.href="wap.html";
-    }
-}else{
+    <div id="background-image-container">
+        <div id="pagetitle">神奇车万角色鉴定系统</div>
+        <h4 id="subtitle">没见过的的东方角色？几个问题让你轻松初识！</h4>
+        <p id="q">问题:</p>
+        <p id="question"> </p>
+        <br />
+        <div id="btnset">
+            <div class="button" onclick="yes()">是</div>
+            <div class="button" id="dontknow" onclick="noidea()">不知道/不确定</div>
+            <div class="button" onclick="no()">否</div><br>
+            <div class="button" id="reset" onclick="reload()">重新开始</div>
+        </div>
+        <div>
+            <p id="showbest"></p>
+            <p id="showother"></p>
+            <p id="wikitip"></p>
+            <a id="firstpage" href="http://thbwiki.cc"></a>
+            <a id="secondpage" href="http://thbwiki.cc"></a>
+            <a id="thirdpage" href="http://thbwiki.cc"></a>
+            <br />
+            <br />
+            <br />
+            <div id="copyright">
+                <p>Powered By <a href="http://tjbaka.top">TJUGERKFER</a></p>
+                <p> 技术支持:<a href="https://www.winsloweric.cn">WinslowEric</a> BbAa</p>
+                <p id="total"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
+            /Android/i.test(navigator.userAgent) ||
+            /BlackBerry/i.test(navigator.userAgent) ||
+            /IEMobile/i.test(navigator.userAgent) ||
+            (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/
+                .test(navigator.userAgent))) {
+            if (/iPad/i.test(navigator.userAgent)) {
+                window.location.href = "wap.html";
+            } else {
+                window.location.href = "wap.html";
+            }
+        } else {
 
-}
-</script>
-	</body>
+        }
+    </script>
+</body>
