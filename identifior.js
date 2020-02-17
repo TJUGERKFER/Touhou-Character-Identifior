@@ -34,17 +34,17 @@ function reload(){
     showbest.innerHTML=" "
     showother.innerHTML=" "
     //红
-    var 博丽灵梦 = new girl("博丽灵梦",false,false,true,false,true,false,true,false,false)
-    var 雾雨魔理沙 = new girl("雾雨魔理沙",true,true,false,true,true,true,true,false,false)
-    var 露米娅 = new girl("露米娅",true,true,false,false,false,false,false,false,false)
-    var 琪露诺 = new girl("琪露诺",false,false,false,false,true,true,false,false,false)
-    var 大妖精 = new girl("大妖精",false,false,false,false,true,true,true,false,false)
-    var 红美铃 =new girl("红美铃",false,false,false,true,false,false,false,false,false)
-    var 小恶魔 =new girl("小恶魔",true,true,false,false,false,true,false,true,true)
-    var 帕秋莉 =new girl("帕秋莉",false,false,false,true,false,false,true,false,false)
-    var 十六夜咲夜 =new girl("十六夜咲夜",false,false,false,true,false,false,true,false,false)
-    var 蕾米莉亚_斯卡雷特 = new girl("蕾米莉亚·斯卡雷特",false,false,false,true,false,true,false,false,true)
-    var 芙兰朵露_斯卡雷特 = new girl("芙兰朵露·斯卡雷特",true,true,true,true,false,true,false,true,false)
+    var 博丽灵梦 = new girl("博丽灵梦",false,false,true,false,true,false,true,false,false,"她手中的道具是御币吗？")
+    var 雾雨魔理沙 = new girl("雾雨魔理沙",true,true,false,true,true,true,true,false,false,"她手中的道具是扫把吗？")
+    var 露米娅 = new girl("露米娅",true,true,false,false,false,false,false,false,false,"她的手臂呈十字架形吗？")
+    var 琪露诺 = new girl("琪露诺",false,false,false,false,true,true,false,false,false,"她的翅膀由六根冰晶组成吗？")
+    var 大妖精 = new girl("大妖精",false,false,false,false,true,true,true,false,false,"她的头发是绿色的吗？")
+    var 红美铃 =new girl("红美铃",false,false,false,true,false,false,false,false,false,"她看起来会武术吗？")
+    var 小恶魔 =new girl("小恶魔",true,true,false,false,false,true,false,true,true,"她背后有恶魔翅膀吗？")
+    var 帕秋莉 =new girl("帕秋莉",false,false,false,true,false,false,true,false,false,"她手中的道具是魔法书吗？")
+    var 十六夜咲夜 =new girl("十六夜咲夜",false,false,false,true,false,false,true,false,false,"她手中的道具是飞刀吗？")
+    var 蕾米莉亚_斯卡雷特 = new girl("蕾米莉亚·斯卡雷特",false,false,false,true,false,true,false,false,true,"她背后有恶魔翅膀吗？")
+    var 芙兰朵露_斯卡雷特 = new girl("芙兰朵露·斯卡雷特",true,true,true,true,false,true,false,true,false,"她的翅膀上有水晶吗？")
     //妖
     var 蕾蒂_霍瓦特洛克 = new girl("蕾蒂·霍瓦特洛克",false,false,false,true,false,false,false,false,false)
     var 橙 = new girl("橙",false,false,true,true,true,false,false,true,true)
@@ -107,50 +107,50 @@ function reload(){
     var 丰聪耳神子 = new girl("丰聪耳神子",true,false,true,false,false,false,true,false,false);
     var 二岩猯藏 = new girl("二岩猯藏",true,false,true,false,false,false,false,true,true);
     //辉
-    var 堀川雷鼓 = new girl("堀川雷鼓",true,true,false,false,false,true,false,false,"请问她是不是有很多鼓？");
-    var 少名针妙丸 = new girl("少名针妙丸",false,true,true,true,false,false,true,false,false,"请问她的帽子是黑色的吗?");
-    var 鬼人正邪 = new girl("鬼人正邪",false,true,false,false,true,false,false,false,false,"请问她的眼睛是红色的吗？");
-    var 九十九弁弁 = new girl("九十九弁弁",false,false,true,false,false,true,false,false,"请问她的衣服是以黄色的吗");
-    var 九十九八桥 = new girl("九十九八桥",true,false,false,false,false,false,true,false,false,"请问他她是短发吗？");
-    var 今泉影狼 = new girl("今泉影狼",false,true,true,false,true,false,false,false,true,"请问她的裙子是以红白为主吗？");
-    var 赤蛮奇 = new girl("赤蛮奇",true,true,true,false,true,false,false,false,false,"请问她头上的蝴蝶结是不是紫色的？");
-    var 若鹭姬 = new girl("若鹭姬",false,false,false,true,false,false,false,true,true,"请问她是人鱼吗？");
+    var 堀川雷鼓 = new girl("堀川雷鼓",true,true,false,false,false,true,false,false,"她是不是身旁有很多鼓？");
+    var 少名针妙丸 = new girl("少名针妙丸",false,true,true,true,false,false,true,false,false,"她的帽子是黑色的吗?");
+    var 鬼人正邪 = new girl("鬼人正邪",false,true,false,false,true,false,false,false,false,"她的眼睛是红色的吗？");
+    var 九十九弁弁 = new girl("九十九弁弁",false,false,true,false,false,true,false,false,"她的衣服是以黄色的吗");
+    var 九十九八桥 = new girl("九十九八桥",true,false,false,false,false,false,true,false,false,"他她是短发吗？");
+    var 今泉影狼 = new girl("今泉影狼",false,true,true,false,true,false,false,false,true,"她的裙子是以红白为主吗？");
+    var 赤蛮奇 = new girl("赤蛮奇",true,true,true,false,true,false,false,false,false,"她头上的蝴蝶结是不是紫色的？");
+    var 若鹭姬 = new girl("若鹭姬",false,false,false,true,false,false,false,true,true,"她是人鱼吗？");
     //绀
-    var 清兰 = new girl("清兰",false,true,false,false,false,false,true,false,true,"请问她有没有兔耳朵？");
-    var 铃瑚 = new girl("铃瑚",false,true,true,true,false,false,true,false,true,"请问她的衣服是黄色的吗");
-    var 哆来咪_苏伊特 = new girl("哆来咪·苏伊特",false,false,false,true,false,false,true,false,false,"请问她的帽子是红色的吗？");
-    var 稀神探女 = new girl("稀神探女",false,true,false,false,false,true,false,false,"请问她的翅膀是白色的吗？ ");
-    var 克劳恩皮丝 = new girl("克劳恩皮丝",true,true,true,true,false,false,true,false,false,"请问她的衣服是不是红色和蓝色为主？");
-    var 纯狐 = new girl("纯狐",true,true,false,true,false,false,false,false,false,"请问她的衣服是黑色为主吗？");
-    var 赫卡提亚_拉碧斯拉祖利 = new girl("赫卡提亚·拉碧斯拉祖利",true,true,false,true,false,false,true,false,false,"请问她的头发是不是红色的？");
+    var 清兰 = new girl("清兰",false,true,false,false,false,false,true,false,true,"她有没有兔耳朵？");
+    var 铃瑚 = new girl("铃瑚",false,true,true,true,false,false,true,false,true,"她的衣服是黄色的吗");
+    var 哆来咪_苏伊特 = new girl("哆来咪·苏伊特",false,false,false,true,false,false,true,false,false,"她的帽子是红色的吗？");
+    var 稀神探女 = new girl("稀神探女",false,true,false,false,false,true,false,false,"她的翅膀是白色的吗？ ");
+    var 克劳恩皮丝 = new girl("克劳恩皮丝",true,true,true,true,false,false,true,false,false,"她的衣服是不是红色和蓝色为主？");
+    var 纯狐 = new girl("纯狐",true,true,false,true,false,false,false,false,false,"她的衣服是黑色为主吗？");
+    var 赫卡提亚_拉碧斯拉祖利 = new girl("赫卡提亚·拉碧斯拉祖利",true,true,false,true,false,false,true,false,false,"她的头发是不是红色的？");
     //天
-    var 爱塔妮缇拉尔瓦 = new girl("爱塔妮缇拉尔瓦",false,true,false,false,false,true,false,false,true,"请问她的衣服是不是绿色的？");
-    var 坂田合欢 = new girl("坂田合欢",false,true,true,false,false,false,true,false,false,"请问她的头发是不是灰色的？");
-    var 高丽野阿吽 = new girl("高丽野阿吽",false,false,true,false,false,false,false,false,"请问她的衣服是不是有祥云图案？");
-    var 矢田寺成美 = new girl("矢田寺成美",false,true,false,true,false,false,false,false,false,"请问她的裙子是灰色为主吗？");
-    var 摩多罗隐岐奈 = new girl("摩多罗隐岐奈",true,true,true,true,false,false,true,false,false,"请问她的衣服是以黄色为主吗?");
-    var 尔子田里乃 = new girl("尔子田里乃",false,true,true,true,false,false,true,false,false,"请问她手里是不是拿着草叶？");
-    var 丁礼田舞 = new girl("丁礼田舞",false,false,false,true,false,false,true,false,false,"请问她是不是手里拿着竹子？");
+    var 爱塔妮缇拉尔瓦 = new girl("爱塔妮缇拉尔瓦",false,true,false,false,false,true,false,false,true,"她的衣服是不是绿色的？");
+    var 坂田合欢 = new girl("坂田合欢",false,true,true,false,false,false,true,false,false,"她的头发是不是灰色的？");
+    var 高丽野阿吽 = new girl("高丽野阿吽",false,false,true,false,false,false,false,false,"她的衣服是不是有祥云图案？");
+    var 矢田寺成美 = new girl("矢田寺成美",false,true,false,true,false,false,false,false,false,"她的裙子是灰色为主吗？");
+    var 摩多罗隐岐奈 = new girl("摩多罗隐岐奈",true,true,true,true,false,false,true,false,false,"她的衣服是以黄色为主吗?");
+    var 尔子田里乃 = new girl("尔子田里乃",false,true,true,true,false,false,true,false,false,"她手里是不是拿着草叶？");
+    var 丁礼田舞 = new girl("丁礼田舞",false,false,false,true,false,false,true,false,false,"她是不是手里拿着竹子？");
     //鬼
-    var 戎璎花 = new girl("戎璎花",false,true,false,false,false,false,false,false,false,"请问她的裙子是以白色为主吗？");
-    var 牛崎润美 = new girl("牛崎润美",false,true,false,false,false,false,true,true,true,"请问她的头发是不是一半黑一半白？");
-    var 庭渡久侘歌 = new girl("庭渡久侘歌",true,true,true,true,true,true,false,true,true,"请问她的帽子是红色的吗？");
-    var 吉吊八千慧 = new girl("吉吊八千慧",true,true,false,false,true,false,false,true,true,"请问她是不是有黄色的鹿角？");
-    var 杖刀偶磨弓 = new girl("杖刀偶磨弓",true,true,true,false,false,false,true,false,false,"请问她的衣服是以黄色为主吗");
-    var 埴安神袿姬 = new girl("埴安神袿姬",false,true,true,false,false,false,true,false,false,"请问她身上是不是带着雕刻刀？");
-    var 骊驹早鬼 = new girl("骊驹早鬼",false,true,true,true,false,true,false,false,false,"请问她的帽子是红色的吗？");
+    var 戎璎花 = new girl("戎璎花",false,true,false,false,false,false,false,false,false,"她的裙子是以白色为主吗？");
+    var 牛崎润美 = new girl("牛崎润美",false,true,false,false,false,false,true,true,true,"她的头发是不是一半黑一半白？");
+    var 庭渡久侘歌 = new girl("庭渡久侘歌",true,true,true,true,true,true,false,true,true,"她的帽子是红色的吗？");
+    var 吉吊八千慧 = new girl("吉吊八千慧",true,true,false,false,true,false,false,true,true,"她是不是有黄色的鹿角？");
+    var 杖刀偶磨弓 = new girl("杖刀偶磨弓",true,true,true,false,false,false,true,false,false,"她的衣服是以黄色为主吗");
+    var 埴安神袿姬 = new girl("埴安神袿姬",false,true,true,false,false,false,true,false,false,"她身上是不是带着雕刻刀？");
+    var 骊驹早鬼 = new girl("骊驹早鬼",false,true,true,true,false,true,false,false,false,"她的帽子是红色的吗？");
     //格
-    var 永江衣玖 = new girl("永江衣玖",false,true,false,true,true,false,false,false,false,"请问她的头发是不是紫色的？");
-    var 比那名居天子 = new girl("比那名居天子",false,true,false,true,true,false,true,false,false,"请问她的帽子上面有没有草叶？");
-    var 秦心 = new girl("秦心",true,true,false,false,true,false,true,false,false,"请问她的头上是不是有一个类似于面具的东西？");
-    var 依神紫苑 = new girl("依神紫苑",false,false,false,false,true,false,true,false,false,"请问她的头发是深蓝色的吗？");
-    var 依神女苑 = new girl("依神女苑",true,true,true,true,true,false,true,false,false,"请问她的衣服是不是紫色的？");
-    var 宇佐见堇子 = new girl("宇佐见堇子",false,true,false,true,false,false,false,false,false,"请问她是不是带着眼镜？");
+    var 永江衣玖 = new girl("永江衣玖",false,true,false,true,true,false,false,false,false,"她的头发是不是紫色的？");
+    var 比那名居天子 = new girl("比那名居天子",false,true,false,true,true,false,true,false,false,"她的帽子上面有没有草叶？");
+    var 秦心 = new girl("秦心",true,true,false,false,true,false,true,false,false,"她的头上是不是有一个类似于面具的东西？");
+    var 依神紫苑 = new girl("依神紫苑",false,false,false,false,true,false,true,false,false,"她的头发是深蓝色的吗？");
+    var 依神女苑 = new girl("依神女苑",true,true,true,true,true,false,true,false,false,"她的衣服是不是紫色的？");
+    var 宇佐见堇子 = new girl("宇佐见堇子",false,true,false,true,false,false,false,false,false,"她是不是带着眼镜？");
     //弹幕小数点
-    var 桑妮米尔克 = new girl("桑妮米尔克",true,true,true,true,true,true,false,false,false,"请问她的裙子是以红白为主吗？");
-    var 露娜切露德 = new girl("露娜切露德",true,true,false,false,true,true,false,false,false,"请问她的裙子是以黑白为主吗？");
-    var 斯塔萨菲雅 = new girl("斯塔萨菲雅",false,false,false,false,true,true,false,false,false,"请问她的裙子上有星星吗？");
-    var 姬海棠果 = new girl("姬海棠果",false,false,false,false,false,true,false,false,false,"请问她的翅膀是黑色的吗？");
+    var 桑妮米尔克 = new girl("桑妮米尔克",true,true,true,true,true,true,false,false,false,"她的裙子是以红白为主吗？");
+    var 露娜切露德 = new girl("露娜切露德",true,true,false,false,true,true,false,false,false,"她的裙子是以黑白为主吗？");
+    var 斯塔萨菲雅 = new girl("斯塔萨菲雅",false,false,false,false,true,true,false,false,false,"她的裙子上有星星吗？");
+    var 姬海棠果 = new girl("姬海棠果",false,false,false,false,false,true,false,false,false,"她的翅膀是黑色的吗？");
     for(i=1;i<genso.length;i++){
         genso[i].score=0
     }
@@ -212,37 +212,42 @@ function next(){
     }
 }
 function end(){
+	character=[[],[]]
     bestscore=0
     secondscore=0
     thirdscore=0
     bestname="Error！"
     secondname="Error！"
     thirdname="Error！"
-    for (i=0;i<genso.length;i++){
-        if (genso[i].score>=thirdscore){
-            thirdscore=genso[i].score
-            thirdname=genso[i].name
-            if(thirdscore>secondscore){
-                thirdscore = [secondscore,secondscore=thirdscore][0];
-                thirdname = [secondname,secondname=thirdname][0];
-                if(secondscore>bestscore){
-                    bestscore = [secondscore,secondscore=bestscore][0];
-                    bestname = [secondname,secondname=bestname][0];   //为了效率牺牲美观 
-                }
+    for (i=0;i<genso.length;i++){ //二维数组保存数据
+        character[0].push(genso[i].name)
+        character[1].push(genso[i].score)
+    }
+    for (i = 0; i < character[0].length; i++) { //选择排序
+        min = character[1][i]
+        for (j = i; j < character[0].length; j++) { 
+            if (character[1][j] > min) {
+                min = character[0][j]  //交换角色名称
+                temp = character[0][i]
+                character[0][i] = character[0][j]
+                character[0][j] = temp
+                min = character[1][j]  //交换角色分数
+                temp = character[1][i]
+                character[1][i] = character[1][j]
+                character[1][j] = temp
             }
         }
-    }
-
-	document.getElementById("showbest").innerHTML="她应该是:"+bestname
-	document.getElementById("showother").innerHTML=" 上面的答案不对？那还可能是:"+secondname+"或者"+thirdname
+    }  
+	document.getElementById("showbest").innerHTML="她应该是:"+character[0][0]
+	document.getElementById("showother").innerHTML=" 上面的答案不对？那还可能是:"+character[0][1]+"或者"+character[0][2]
 	document.getElementById("wikitip").innerHTML="你可以查看thbwiki上的角色介绍:"
-	document.getElementById("firstpage").href="https://thbwiki.cc/"+bestname
-	document.getElementById("firstpage").innerHTML=bestname
-	document.getElementById("secondpage").href="https://thbwiki.cc/"+secondname
-	document.getElementById("secondpage").innerHTML=secondname
-	document.getElementById("thirdpage").href="https://thbwiki.cc/"+thirdname
-	document.getElementById("thirdpage").innerHTML=thirdname
-	if(secondscore==0 && thirdscore == 0){
+	document.getElementById("firstpage").href="https://thbwiki.cc/"+character[0][0]
+	document.getElementById("firstpage").innerHTML=character[0][0]
+	document.getElementById("secondpage").href="https://thbwiki.cc/"+character[0][1]
+	document.getElementById("secondpage").innerHTML=character[0][1]
+	document.getElementById("thirdpage").href="https://thbwiki.cc/"+character[0][2]
+	document.getElementById("thirdpage").innerHTML=character[0][2]
+	if(character[1][2]==0 && character[1][1] == 0){
 		document.getElementById("showbest").innerHTML="宁也算是东方众？"
 		document.getElementById("showother").innerHTML=" "
 		document.getElementById("firstpage").innerHTML=" "
