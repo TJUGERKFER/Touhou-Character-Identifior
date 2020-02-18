@@ -210,7 +210,7 @@ function noidea() {
 }
 function next() {
     nowquestion++
-    if (nowquestion > 10) {
+    if (nowquestion > 9) {
         specialquestion.load()
         specialquestion.ask()
     } else if (nowquestion <= commonquestion) {
