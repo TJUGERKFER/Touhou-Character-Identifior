@@ -272,7 +272,7 @@ specialquestion = {
         document.getElementById("dontknowbtn").onclick = specialquestion.dontknow
     },
     ask: function () {
-        if (nowquestion > commonquestion + 9) {
+        if (nowquestion > commonquestion + 5) {
             end()
             document.getElementById("yesbtn").onclick = ()=>{}
             document.getElementById("nobtn").onclick = ()=>{}
@@ -282,12 +282,12 @@ specialquestion = {
         document.getElementById("question").innerHTML = character[2][nowquestion - commonquestion]
     },
     yes: function () {
-        character[1][nowquestion - commonquestion] = character[1][nowquestion - commonquestion] + 20
+        character[1][nowquestion - commonquestion] = character[1][nowquestion - commonquestion] + 22
         nowquestion++
         specialquestion.ask()
     },
     no: function () {
-        character[1][nowquestion - commonquestion] = character[1][nowquestion - commonquestion] * 0.8
+        character[1][nowquestion - commonquestion] = character[1][nowquestion - commonquestion] * 0.78
         nowquestion++
         specialquestion.ask()
     },
