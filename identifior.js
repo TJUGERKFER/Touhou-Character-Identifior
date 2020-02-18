@@ -13,7 +13,7 @@ question=["角色名占位",
 "这个角色有尾巴吗？",
 "这个角色身上有明显可见的动物特征吗？",
 ]
-function girl(name,hair,eye,cloth,hat,bow,wing,hand,tail,animal,score){
+function girl(name,hair,eye,cloth,hat,bow,wing,hand,tail,animal,question,score){
     this.name=name
     this.hair=hair
     this.eye=eye
@@ -25,14 +25,19 @@ function girl(name,hair,eye,cloth,hat,bow,wing,hand,tail,animal,score){
     this.tail=tail
     this.animal=animal
     this.score=0
+    this.question=question
     genso.push(this) 
 }
 function reload(){
+    commonquestion=9
     genso = new Array
     decision = new Array
     decision.push("角色名")
     showbest.innerHTML=" "
     showother.innerHTML=" "
+    document.getElementById("yesbtn").onclick="yes()"
+    document.getElementById("nobtn").onclick="no()"
+    document.getElementById("dontknowbtn").onclick="noidea()"
     //红
     var 博丽灵梦 = new girl("博丽灵梦",false,false,true,false,true,false,true,false,false,"她手中的道具是御币吗？")
     var 雾雨魔理沙 = new girl("雾雨魔理沙",true,true,false,true,true,true,true,false,false,"她手中的道具是扫把吗？")
@@ -205,33 +210,16 @@ function noidea(){
 }
 function next(){
 	nowquestion++
-    if (nowquestion==10){
-        end()
-    } else if (nowquestion<10){
+    if (nowquestion>10){
+        specialquestion()
+    } else if (nowquestion<=commonquestion){
         document.getElementById("question").innerHTML=question[nowquestion]
+    } else if (nowquestion==10){
+        specialquestion()
     }
 }
 function end(){
-	character=[[],[]]
-    for (i=0;i<genso.length;i++){ //二维数组保存数据
-        character[0].push(genso[i].name)
-        character[1].push(genso[i].score)
-    }
-    for (i = 0; i < character[0].length; i++) { //选择排序
-        min = character[1][i]
-        for (j = i; j < character[0].length; j++) { 
-            if (character[1][j] > min) {
-                min = character[0][j]  //交换角色名称
-                temp = character[0][i]
-                character[0][i] = character[0][j]
-                character[0][j] = temp
-                min = character[1][j]  //交换角色分数
-                temp = character[1][i]
-                character[1][i] = character[1][j]
-                character[1][j] = temp
-            }
-        }
-    }  
+    scoresort()
 	document.getElementById("showbest").innerHTML="她应该是:"+character[0][0]
 	document.getElementById("showother").innerHTML=" 上面的答案不对？那还可能是:"+character[0][1]+"或者"+character[0][2]
 	document.getElementById("wikitip").innerHTML="你可以查看thbwiki上的角色介绍:"
@@ -249,4 +237,63 @@ function end(){
 		document.getElementById("thirdpage").innerHTML=" "
 		document.getElementById("wikitip").innerHTML=" "
 	}
+}
+function scoresort(){
+    character=[[],[]]
+    for (i=0;i<genso.length;i++){ //二维数组保存数据
+        character[0].push(genso[i].name)
+        character[1].push(genso[i].score)
+        character[2].push(genso[i].question)
+    }
+    for (i = 0; i < character[0].length; i++) { //选择排序
+        min = character[1][i]
+        for (j = i; j < character[0].length; j++) { 
+            if (character[1][j] > min) {
+                min = character[0][j]  //交换角色名称
+                temp = character[0][i]
+                character[0][i] = character[0][j]
+                character[0][j] = temp
+                min = character[1][j]  //交换角色分数
+                temp = character[1][i]
+                character[1][i] = character[1][j]
+                character[1][j] = temp
+                min = character[2][j]  //交换角色问题
+                temp = character[2][i]
+                character[2][i] = character[2][j]
+                character[2][j] = temp
+            }
+        }
+    }  
+}
+specialquestion = {
+    load:function(){
+        scoresort()
+        document.getElementById("yesbtn").onclick="specialquestion.yes()"
+        document.getElementById("nobtn").onclick="specialquestion.no()"
+        document.getElementById("dontknowbtn").onclick="specialquestion.dontknow()"
+    },
+    ask:function(){
+        if(nowquestion>commonquestion+9){
+            end()
+            document.getElementById("yesbtn").onclick=" "
+            document.getElementById("nobtn").onclick=" "
+            document.getElementById("dontknowbtn").onclick=" "
+            return;
+        }
+        document.getElementById("question").innerHTML=character[2][nowquestion-commonquestion]
+    },
+    yes:function(){
+        character[1][nowquestion-commonquestion]=character[1][nowquestion-commonquestion]+20
+        nowquestion++
+        specialquestion.ask()
+    },
+    no:function(){
+        character[1][nowquestion-commonquestion]=character[1][nowquestion-commonquestion]*0.8
+        nowquestion++
+        specialquestion.ask()
+    },
+    dontknow:function(){
+        nowquestion++
+        specialquestion.ask()
+    },
 }
