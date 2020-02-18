@@ -251,7 +251,6 @@ function scoresort() {
         min = character[1][i]
         for (j = i; j < character[0].length; j++) {
             if (character[1][j] > min) {
-                min = character[0][j]  //交换角色名称
                 temp = character[0][i]
                 character[0][i] = character[0][j]
                 character[0][j] = temp
@@ -259,7 +258,6 @@ function scoresort() {
                 temp = character[1][i]
                 character[1][i] = character[1][j]
                 character[1][j] = temp
-                min = character[2][j]  //交换角色问题
                 temp = character[2][i]
                 character[2][i] = character[2][j]
                 character[2][j] = temp
