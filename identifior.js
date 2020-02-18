@@ -46,66 +46,66 @@ function reload(){
     var 蕾米莉亚_斯卡雷特 = new girl("蕾米莉亚·斯卡雷特",false,false,false,true,false,true,false,false,true,"她背后有恶魔翅膀吗？")
     var 芙兰朵露_斯卡雷特 = new girl("芙兰朵露·斯卡雷特",true,true,true,true,false,true,false,true,false,"她的翅膀上有水晶吗？")
     //妖
-    var 蕾蒂_霍瓦特洛克 = new girl("蕾蒂·霍瓦特洛克",false,false,false,true,false,false,false,false,false)
-    var 橙 = new girl("橙",false,false,true,true,true,false,false,true,true)
-    var 爱丽丝_玛格特洛依德 = new girl("爱丽丝·玛格特洛依德",true,false,false,false,false,false,true,false,false)
-    var 莉莉霍瓦特 = new girl("莉莉霍瓦特",true,true,false,true,true,true,false,false,false)
-    var 露娜萨_普莉兹姆利巴 = new girl("露娜萨·普莉兹姆利巴",true,true,false,true,false,false,true,false,false)
-    var 梅露兰_普莉兹姆利巴 = new girl("梅露兰·普莉兹姆利巴",false,false,false,true,false,false,true,false,false)
-    var 莉莉卡_普莉兹姆利巴 = new girl("莉莉卡·普莉兹姆利巴",false,false,true,true,false,false,true,false,false)
-    var 魂魄妖梦 = new girl("魂魄妖梦",false,true,false,false,true,false,true,false,false)
-    var 西行寺幽幽子 = new girl("西行寺幽幽子",true,true,false,true,false,false,false,false,false)
-    var 八云蓝 = new girl("八云蓝",true,true,false,true,false,false,false,true,true)
-    var 八云紫 = new girl("八云紫",true,false,false,true,true,false,true,false,false)
+    var 蕾蒂_霍瓦特洛克 = new girl("蕾蒂·霍瓦特洛克",false,false,false,true,false,false,false,false,false,"她戴着一顶白色帽子吗？")
+    var 橙 = new girl("橙",false,false,true,true,true,false,false,true,true,"她有两条尾巴吗？")
+    var 爱丽丝_玛格特洛依德 = new girl("爱丽丝·玛格特洛依德",true,false,false,false,false,false,true,false,false,"她手中的道具是魔法书吗")
+    var 莉莉霍瓦特 = new girl("莉莉霍瓦特",true,true,false,true,true,true,false,false,false,"她的翅膀看起来像蝴蝶吗")
+    var 露娜萨_普莉兹姆利巴 = new girl("露娜萨·普莉兹姆利巴",true,true,false,true,false,false,true,false,false,"她手里拿的是提琴吗？")
+    var 梅露兰_普莉兹姆利巴 = new girl("梅露兰·普莉兹姆利巴",false,false,false,true,false,false,true,false,false,"她手里拿的是小号吗？")
+    var 莉莉卡_普莉兹姆利巴 = new girl("莉莉卡·普莉兹姆利巴",false,false,true,true,false,false,true,false,false,"她手里拿的是琴吗？")
+    var 魂魄妖梦 = new girl("魂魄妖梦",false,true,false,false,true,false,true,false,false,"她身旁飘着灵魂吗？")
+    var 西行寺幽幽子 = new girl("西行寺幽幽子",true,true,false,true,false,false,false,false,false,"她手里拿着扇子吗？")
+    var 八云蓝 = new girl("八云蓝",true,true,false,true,false,false,false,true,true,"她是狐狸吗")
+    var 八云紫 = new girl("八云紫",true,false,false,true,true,false,true,false,false,"她手上拿着花伞吗")
     //永
-    var 莉格露_奈特巴格 = new girl("莉格露·奈特巴格",false,false,false,false,false,false,false,false,true)
-    var 米斯蒂娅_萝蕾拉 = new girl("米斯蒂娅·萝蕾拉",true,false,true,true,false,true,false,false,true)
-    var 上白泽慧音 = new girl("上白泽慧音",false,true,false,true,false,false,false,false,false)
-    var 因幡帝 = new girl("因幡帝",false,true,false,false,false,false,false,false,true)
-    var 铃仙_优昙华院_因幡 = new girl("铃仙·优昙华院·因幡",false,true,false,false,false,false,false,false,true)
-    var 八意永琳 = new girl("八意永琳",false,false,true,true,false,false,true,false,false)
-    var 蓬莱山辉夜 = new girl("蓬莱山辉夜",false,false,true,false,true,false,false,false,false)
-    var 藤原妹红 = new girl("藤原妹红",false,true,true,false,false,false,false,false,false)
+    var 莉格露_奈特巴格 = new girl("莉格露·奈特巴格",false,false,false,false,false,false,false,false,true,"她头上有触角吗？")
+    var 米斯蒂娅_萝蕾拉 = new girl("米斯蒂娅·萝蕾拉",true,false,true,true,false,true,false,false,true,"她是鸟吗？")
+    var 上白泽慧音 = new girl("上白泽慧音",false,true,false,true,false,false,false,false,false,"她头上顶着奇怪的帽子吗？")
+    var 因幡帝 = new girl("因幡帝",false,true,false,false,false,false,false,false,true,"她长着兔耳吗？")
+    var 铃仙_优昙华院_因幡 = new girl("铃仙·优昙华院·因幡",false,true,false,false,false,false,false,false,true,"她穿着制服吗？")
+    var 八意永琳 = new girl("八意永琳",false,false,true,true,false,false,true,false,false,"她手中拿着弓吗？")
+    var 蓬莱山辉夜 = new girl("蓬莱山辉夜",false,false,true,false,true,false,false,false,false,"她手中拿着蓬莱玉枝吗？")
+    var 藤原妹红 = new girl("藤原妹红",false,true,true,false,false,false,false,false,false,"她穿着背带裤吗？")
     //花
-    var 射命丸文 = new girl("射命丸文",false,true,false,true,true,false,true,false,true)
-    var 梅蒂欣_梅兰可莉 = new girl("梅蒂欣·梅兰可莉",true,false,true,false,true,false,false,false,false)
-    var 风见幽香 = new girl("风见幽香",false,true,true,false,false,false,true,false,false)
-    var 小野塚小町 = new girl("小野塚小町",true,true,false,false,false,false,true,false,false)
-    var 四季映姬_夜摩仙那度 = new girl("四季映姬·夜摩仙那度",false,false,false,true,false,false,true,false,false)
+    var 射命丸文 = new girl("射命丸文",false,true,false,true,true,false,true,false,true,"她看起来跑得很快吗？")
+    var 梅蒂欣_梅兰可莉 = new girl("梅蒂欣·梅兰可莉",true,false,true,false,true,false,false,false,false,"她是人偶吗")
+    var 风见幽香 = new girl("风见幽香",false,true,true,false,false,false,true,false,false,"她身上有花作装饰吗")
+    var 小野塚小町 = new girl("小野塚小町",true,true,false,false,false,false,true,false,false,"她拿着镰刀？")
+    var 四季映姬_夜摩仙那度 = new girl("四季映姬·夜摩仙那度",false,false,false,true,false,false,true,false,false,"她拿着悔悟之棒吗")
     //风
-    var 秋静叶 = new girl("秋静叶",true,true,true,false,false,false,false,false,false)
-    var 秋穰子 = new girl("秋穰子",true,true,true,true,false,false,false,false,false)
-    var 键山雏 = new girl("键山雏",false,false,true,false,true,false,false,false,false)
-    var 河城荷取 = new girl("河城荷取",false,false,false,true,false,false,true,false,false)
-    var 犬走椛 = new girl("犬走椛",false,false,false,true,false,false,true,true,true)
-    var 东风谷早苗 = new girl("东风谷早苗",false,false,false,false,false,false,true,false,false)
-    var 八坂神奈子 = new girl("八坂神奈子",false,true,true,false,false,false,false,false,false)
-    var 洩矢诹访子 = new girl("洩矢诹访子",true,true,false,true,false,false,false,false,false)
+    var 秋静叶 = new girl("秋静叶",true,true,true,false,false,false,false,false,false,"她看起来有秋天的感觉吗？")
+    var 秋穰子 = new girl("秋穰子",true,true,true,true,false,false,false,false,false,"她看起来像红薯吗")
+    var 键山雏 = new girl("键山雏",false,false,true,false,true,false,false,false,false,"她头上的发带和她的头发红配绿吗？")
+    var 河城荷取 = new girl("河城荷取",false,false,false,true,false,false,true,false,false,"她手中拿着狗尾草或者水枪吗")
+    var 犬走椛 = new girl("犬走椛",false,false,false,true,false,false,true,true,true,"她拿着刀和盾吗")
+    var 东风谷早苗 = new girl("东风谷早苗",false,false,false,false,false,false,true,false,false,"她头发上有蛇形饰物吗")
+    var 八坂神奈子 = new girl("八坂神奈子",false,true,true,false,false,false,false,false,false,"她背后背着像麻花一样的东西吗")
+    var 洩矢诹访子 = new girl("洩矢诹访子",true,true,false,true,false,false,false,false,false,"她帽子上有眼睛吗")
     //地
-    var 琪斯美 = new girl("琪斯美",false,false,false,false,false,false,false,false,false)
-    var 黑谷山女 = new girl("黑谷山女",true,true,true,false,false,false,false,false,false)
-    var 水桥帕露西 = new girl("水桥帕露西",true,true,true,false,false,false,false,false,false)
-    var 星熊勇仪 = new girl("星熊勇仪",true,true,false,false,false,false,true,false,false)
-    var 古明地觉 = new girl("古明地觉",false,false,false,false,false,false,false,false,false)
-    var 火焰猫燐 = new girl("火焰猫燐",true,true,false,false,true,false,true,true,true)
-    var 灵乌路空 = new girl("灵乌路空",false,false,false,false,true,true,true,false,true)
-    var 古明地恋 = new girl("古明地恋",false,false,true,true,false,false,false,false,false)
+    var 琪斯美 = new girl("琪斯美",false,false,false,false,false,false,false,false,false,"她坐在桶里吗？")
+    var 黑谷山女 = new girl("黑谷山女",true,true,true,false,false,false,false,false,false,"她穿着泡泡裤吗？")
+    var 水桥帕露西 = new girl("水桥帕露西",true,true,true,false,false,false,false,false,false,"她看起来一副忧郁/嫉妒脸吗？")
+    var 星熊勇仪 = new girl("星熊勇仪",true,true,false,false,false,false,true,false,false,"她头上有一只角吗？")
+    var 古明地觉 = new girl("古明地觉",false,false,false,false,false,false,false,false,false,"她胸口有紧闭的眼睛饰物吗")
+    var 火焰猫燐 = new girl("火焰猫燐",true,true,false,false,true,false,true,true,true,"她是猫吗？")
+    var 灵乌路空 = new girl("灵乌路空",false,false,false,false,true,true,true,false,true,"她手上套着一个核燃料棒吗？")
+    var 古明地恋 = new girl("古明地恋",false,false,true,true,false,false,false,false,false,"她胸口有打开的眼睛饰物吗")
     //星
-    var 娜兹玲 = new girl("娜兹玲",false,true,false,false,false,false,true,true,true)
-    var 多多良小伞 = new girl("多多良小伞",false,true,false,false,false,false,true,false,false)
-    var 云居一轮 = new girl("云居一轮",false,false,false,true,false,false,true,false,false)
-    var 村纱水蜜 = new girl("村纱水蜜",false,false,false,true,false,false,true,false,false)
-    var 寅丸星 = new girl("寅丸星",true,true,true,false,true,false,true,false,true)
-    var 圣白莲 = new girl("圣白莲",true,true,false,false,false,false,true,false,false)
-    var 封兽鵺 = new girl("封兽鵺",false,true,false,false,true,true,true,false,false)
+    var 娜兹玲 = new girl("娜兹玲",false,true,false,false,false,false,true,true,true,"她是老鼠吗？")
+    var 多多良小伞 = new girl("多多良小伞",false,true,false,false,false,false,true,false,false,"她的伞有舌头吗？")
+    var 云居一轮 = new girl("云居一轮",false,false,false,true,false,false,true,false,false,"她看起来像宗教信徒吗？")
+    var 村纱水蜜 = new girl("村纱水蜜",false,false,false,true,false,false,true,false,false,"她看起来像舰长吗？")
+    var 寅丸星 = new girl("寅丸星",true,true,true,false,true,false,true,false,true,"她看起来像老虎吗？")
+    var 圣白莲 = new girl("圣白莲",true,true,false,false,false,false,true,false,false,"她头发和身边有咒语吗？")
+    var 封兽鵺 = new girl("封兽鵺",false,true,false,false,true,true,true,false,false,"她的翅膀看起来很特别吗？")
     //神
-    var 幽谷响子 = new girl("幽谷响子",false,false,true,false,false,false,true,false,false);
-    var 宫古芳香 = new girl("宫古芳香",false,false,true,true,false,false,false,false,false);
-    var 霍青娥 = new girl("霍青娥",false,false,false,false,false,false,false,false,false);
-    var 苏我屠自古 = new girl("苏我屠自古",false,false,false,true,false,false,false,false,false);
-    var 物部布都 = new girl("物部布都",false,false,false,true,false,false,false,false,false);
-    var 丰聪耳神子 = new girl("丰聪耳神子",true,false,true,false,false,false,true,false,false);
-    var 二岩猯藏 = new girl("二岩猯藏",true,false,true,false,false,false,false,true,true);
+    var 幽谷响子 = new girl("幽谷响子",false,false,true,false,false,false,true,false,false,"她拿着跟扫把吗？");
+    var 宫古芳香 = new girl("宫古芳香",false,false,true,true,false,false,false,false,false,"她是僵尸吗？");
+    var 霍青娥 = new girl("霍青娥",false,false,false,false,false,false,false,false,false,"她头上有个八字辫吗？");
+    var 苏我屠自古 = new girl("苏我屠自古",false,false,false,true,false,false,false,false,false,"她看起来像幽灵吗？");
+    var 物部布都 = new girl("物部布都",false,false,false,true,false,false,false,false,false,"她头上有个高高的帽子吗？");
+    var 丰聪耳神子 = new girl("丰聪耳神子",true,false,true,false,false,false,true,false,false,"她戴着耳机(?)吗？");
+    var 二岩猯藏 = new girl("二岩猯藏",true,false,true,false,false,false,false,true,true,"她看起来像狸猫吗？");
     //辉
     var 堀川雷鼓 = new girl("堀川雷鼓",true,true,false,false,false,true,false,false,"她是不是身旁有很多鼓？");
     var 少名针妙丸 = new girl("少名针妙丸",false,true,true,true,false,false,true,false,false,"她的帽子是黑色的吗?");
@@ -213,12 +213,6 @@ function next(){
 }
 function end(){
 	character=[[],[]]
-    bestscore=0
-    secondscore=0
-    thirdscore=0
-    bestname="Error！"
-    secondname="Error！"
-    thirdname="Error！"
     for (i=0;i<genso.length;i++){ //二维数组保存数据
         character[0].push(genso[i].name)
         character[1].push(genso[i].score)
