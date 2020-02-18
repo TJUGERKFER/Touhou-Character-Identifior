@@ -211,6 +211,9 @@ function noidea() {
 function next() {
     nowquestion++
     if (nowquestion > 9) {
+        if (nowquestion==10){
+            scoresort()
+        }
         specialquestion.load()
         specialquestion.ask()
     } else if (nowquestion <= commonquestion) {
