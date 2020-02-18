@@ -279,15 +279,15 @@ specialquestion = {
             document.getElementById("dontknowbtn").onclick = ()=>{}
             return;
         }
-        document.getElementById("question").innerHTML = character[2][nowquestion - commonquestion]
+        document.getElementById("question").innerHTML = character[2][nowquestion - commonquestion - 1]
     },
     yes: function () {
-        character[1][nowquestion - commonquestion] = character[1][nowquestion - commonquestion] + 22
+        character[1][nowquestion - commonquestion- 1] = character[1][nowquestion - commonquestion- 1] + 22
         nowquestion++
         specialquestion.ask()
     },
     no: function () {
-        character[1][nowquestion - commonquestion] = character[1][nowquestion - commonquestion] * 0.78
+        character[1][nowquestion - commonquestion- 1] = character[1][nowquestion - commonquestion- 1] * 0.78
         nowquestion++
         specialquestion.ask()
     },
