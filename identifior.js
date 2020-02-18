@@ -211,12 +211,9 @@ function noidea(){
 function next(){
 	nowquestion++
     if (nowquestion>10){
-        specialquestion()
+        specialquestion.ask()
     } else if (nowquestion<=commonquestion){
         document.getElementById("question").innerHTML=question[nowquestion]
-    } else if (nowquestion==10){
-        specialquestion()
-    }
 }
 function end(){
     scoresort()
