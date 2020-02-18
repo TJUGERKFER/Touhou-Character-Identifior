@@ -238,7 +238,7 @@ function end() {
     }
 }
 function scoresort() {
-    character = new Array(3).fill([]); // ==> [[],[],[]] 人类可读
+    character = [[],[],[]] // ==> [[],[],[]] 人类可读
     for (i = 0; i < genso.length; i++) { //二维数组保存数据
         character[0].push(genso[i].name)
         character[1].push(genso[i].score)
