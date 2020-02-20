@@ -99,16 +99,7 @@
     document.getElementById("thirdpage").href = "https://thbwiki.cc/" + identifior.CharacterList[2].Name
     document.getElementById("thirdpage").innerHTML = identifior.CharacterList[2].Name
     if(identifior.CharacterList.slice(0,3).every((value,index)=>{ //如果前三分数相同 则无解
-      if(index==0) {
-        LastValue=value.Score;
-        return true;
-      } else {
-        if(LastValue == value.Score) {
-          LastValue=value.Score;
-          return true;
-        }
-        return false;
-      } 
+     return value == 0
     })) {
       document.getElementById("showbest").innerHTML = "宁也算是东方众？"
       document.getElementById("showother").innerHTML = " "
