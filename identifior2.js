@@ -74,22 +74,23 @@ class Question {
     this.special = question.special;
   }
   yes() {
-    if (this.special) {
-      this.Identifior.Characters[characterName].Score += Infinity;
-      this.Identifior.SpecialIndex = 5;
-    } else {
-      for (let characterName of this.Characters) {
-        this.Identifior.Characters[characterName].Score += 1 / this.Characters.length;
+    let bonuspower = this.Characters.length / (this.Identifior.CharacterList.length - this.Characters.length);
+    for (let characterName of this.Characters) {
+      if (this.special) {
+        this.Identifior.Characters[characterName].Score += 22;
+      } else {
+        this.Identifior.Characters[characterName].Score += 100 / this.Characters.length / bonuspower;
       }
     }
   }
   no() {
+    let bonuspower = this.Characters.length / (this.Identifior.CharacterList.length - this.Characters.length);
     if (this.special) {
-      this.Identifior.Characters[characterName].Score -= Infinity;
-      this.Identifior.SpecialIndex = 5;
+      this.Identifior.Characters[characterName].Score *= 0.78;
     } else {
-      for (let characterName of this.Characters) {
-        this.Identifior.Characters[characterName].Score *= 0.7;
+      let addScoreCharacters = this.CharacterList.filter(value => !this.Characters.includes(value.Name));
+      for (let item of addScoreCharacters) {
+        item.Score += 100 / this.Characters.length / bonuspower;
       }
     }
   }
