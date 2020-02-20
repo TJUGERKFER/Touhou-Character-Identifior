@@ -98,7 +98,7 @@
     document.getElementById("secondpage").innerHTML = identifior.CharacterList[1].Name
     document.getElementById("thirdpage").href = "https://thbwiki.cc/" + identifior.CharacterList[2].Name
     document.getElementById("thirdpage").innerHTML = identifior.CharacterList[2].Name
-    if(this.CharacterList.slice(0,3).every((value,index)=>{ //如果前三分数相同 则无解
+    if(identifior.CharacterList.slice(0,3).every((value,index)=>{ //如果前三分数相同 则无解
       if(index==0) {
         LastValue=value.Score;
         return true;
