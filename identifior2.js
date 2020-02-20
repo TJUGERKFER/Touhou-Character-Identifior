@@ -25,7 +25,7 @@ class Identifior {
     this.SpecialQuestion = {};
     let SpecialQuestion = Object.values(this.RawData.questions).filter(value => value.special);
     for (let value of SpecialQuestion) {
-      SpecialQuestion[value.characters[0]] = value;
+      this.SpecialQuestion[value.characters[0]] = new Question(value, this);
     }
     this.askdQuestions = [];
     let Characters = new Set();
@@ -39,8 +39,8 @@ class Identifior {
   }
   getQuestion() {
     //通过Score获取目前最符合的问题
-    this.CharacterList.sort((a, b) => b.Score - a.Score); // 将对象转为数组并从大到小进行排序;
     if (this.SimpleQuestions.length == 0) return this.GetSpecialQuestion(); // 普通问题回答结束判断
+    this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
     const MiddleScore = this.CharacterList[Math.round(this.CharacterList.length * 0.5)].Score;
     let ScoreHighCharacters = this.CharacterList.filter(value => value.Score >= MiddleScore); //过滤出 Score >= 中位数的人物
     const ChoiceQuestion = this.SimpleQuestions.map(value => {
@@ -57,12 +57,17 @@ class Identifior {
     return ChoiceQuestion;
   }
   GetSpecialQuestion() {
+    if(this.SimpleIndex == 0){
+      this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
+    }
     if (this.SpecialIndex < 5) {
-      this.askdQuestions.push(this.SpecialQuestion[this.CharacterList[0].Name]);
-      const Question = this.SpecialQuestion[this.CharacterList[0].Name];
-      delete this.SpecialQuestion[this.CharacterList[0].Name];
+      this.askdQuestions.push(this.SpecialQuestion[this.CharacterList[this.SpecialIndex].Name]);
+      const Question = this.SpecialQuestion[this.CharacterList[this.SpecialIndex].Name];
+      delete this.SpecialQuestion[this.CharacterList[this.SpecialIndex].Name];
+      this.SpecialIndex++;
       return Question;
     }
+    this.SpecialIndex++;
     return false;
   }
 }
@@ -88,7 +93,7 @@ class Question {
     if (this.special) {
       this.Identifior.Characters[characterName].Score *= 0.78;
     } else {
-      let addScoreCharacters = this.CharacterList.filter(value => !this.Characters.includes(value.Name));
+      let addScoreCharacters = this.Identifior.CharacterList.filter(value => !this.Characters.includes(value.Name));
       for (let item of addScoreCharacters) {
         item.Score += 100 / this.Characters.length / bonuspower;
       }

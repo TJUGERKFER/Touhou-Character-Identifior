@@ -127,6 +127,12 @@
       getQuestion();
     };
   });
+  function reload(){
+    this.identifior = new Identifior();
+    identifior.load().then(() => {
+      getQuestion();
+    })
+  }
 </script>
 
 <body>
