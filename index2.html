@@ -1,0 +1,201 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+  * {
+    font-family: "Microsoft Yahei UI", "Segoi UI";
+    text-align: center;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  #background-image-container {
+    position: fixed;
+    margin: 0px auto;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: url(https://i.loli.net/2020/02/16/w1qFDnAcyQ7gzpI.png);
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+  }
+
+  #pagetitle {
+    font-size: 36px;
+    width: 100%;
+    margin-top: 75px;
+    color: rgb(67, 120, 150);
+  }
+
+  #copyright {
+    font-size: 18px;
+    position: fixed;
+    width: 100%;
+    bottom: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: rgba(67, 120, 150, 0.9);
+    line-height: 5px;
+  }
+
+  .button {
+    line-height: 40px;
+    border: 1px solid #66c2ff;
+    border-radius: 25px 25px 25px 25px;
+    display: inline-block;
+    margin: auto;
+    margin-top: 3px;
+    padding: auto;
+    padding-top: 3px;
+    width: 80px;
+    height: 48px;
+    background-color: rgba(46, 158, 250, 0.1);
+    text-align: center;
+    user-select: none;
+  }
+
+  .button:hover {
+    background-color: rgba(46, 158, 250, 0.4);
+  }
+
+  #reset {
+    width: 90px;
+    margin-top: 7px;
+  }
+
+  #btnset {
+    display: block;
+    margin: auto;
+    padding: auto;
+  }
+
+  #dontknowbtn {
+    width: 120px;
+  }
+</style>
+<title>车万角色鉴定系统</title>
+<script src="identifior2.js"></script>
+<script>
+  function getQuestion() {
+    let q = identifior.getQuestion();
+    if (q) {
+      Question = q;
+      document.querySelector("#question").innerText = Question.Question;
+    } else {
+      showResult();
+    }
+  }
+  function showResult() {
+    document.getElementById("showbest").innerHTML = "她应该是:" + identifior.CharacterList[0].Name
+    document.getElementById("showother").innerHTML = " 上面的答案不对？那还可能是:" + identifior.CharacterList[1].Name + "或者" + identifior.CharacterList[2].Name
+    document.getElementById("wikitip").innerHTML = "你可以查看thbwiki上的角色介绍:"
+    document.getElementById("firstpage").href = "https://thbwiki.cc/" + identifior.CharacterList[0].Name
+    document.getElementById("firstpage").innerHTML = identifior.CharacterList[0].Name
+    document.getElementById("secondpage").href = "https://thbwiki.cc/" + identifior.CharacterList[1].Name
+    document.getElementById("secondpage").innerHTML = identifior.CharacterList[1].Name
+    document.getElementById("thirdpage").href = "https://thbwiki.cc/" + identifior.CharacterList[2].Name
+    document.getElementById("thirdpage").innerHTML = identifior.CharacterList[2].Name
+    if(this.CharacterList.slice(0,3).every((value,index)=>{ //如果前三分数相同 则无解
+      if(index==0) {
+        LastValue=value.Score;
+        return true;
+      } else {
+        if(LastValue == value.Score) {
+          LastValue=value.Score;
+          return true;
+        }
+        return false;
+      } 
+    })) {
+      document.getElementById("showbest").innerHTML = "宁也算是东方众？"
+      document.getElementById("showother").innerHTML = " "
+      document.getElementById("firstpage").innerHTML = " "
+      document.getElementById("secondpage").innerHTML = " "
+      document.getElementById("thirdpage").innerHTML = " "
+      document.getElementById("wikitip").innerHTML = " "
+    }
+  }
+  document.addEventListener('DOMContentLoaded', (event) => {
+    //这里的this指全局作用域
+    this.identifior = new Identifior();
+    identifior.load().then(() => {
+      getQuestion();
+    })
+    this.yes = () => {
+      Question.yes();
+      getQuestion()
+    };
+    this.no = () => {
+      Question.no();
+      getQuestion()
+    };
+    this.noidea = () => {
+      getQuestion();
+    };
+  });
+</script>
+
+<body>
+  <!--[if lt IE 9]>
+      <div class="aya-hate-stupid-ie">
+        <div class="ie-container">
+          <h1>Error: IE Browser detected | 您使用的浏览器过低，被城管踢出了幻想乡</h1>
+          <p>
+            “都2020年了您还在使用IE？？ -射命丸文“
+          </p>
+          <a href="https://browsehappy.com" target="_blank">
+            您可以点击此处，下载Chrome/Firefox后再次尝试跨越结界。
+          </a>
+        </div>
+      </div>
+    <![endif]-->
+
+  <div id="background-image-container">
+    <div id="pagetitle">神奇车万角色鉴定系统</div>
+    <h4 id="subtitle">没见过的的东方角色？几个问题让你轻松初识！</h4>
+    <p id="q">问题:</p>
+    <p id="question"> </p>
+    <br />
+    <div id="btnset">
+      <div class="button" id="yesbtn" onclick="yes()">是</div>
+      <div class="button" id="dontknowbtn" onclick="noidea()">不知道/不确定</div>
+      <div class="button" id="nobtn" onclick="no()">否</div><br>
+      <div class="button" id="reset" onclick="reload()">重新开始</div>
+    </div>
+    <div>
+      <p id="showbest"></p>
+      <p id="showother"></p>
+      <p id="wikitip"></p>
+      <a id="firstpage" href="http://thbwiki.cc"></a>
+      <a id="secondpage" href="http://thbwiki.cc"></a>
+      <a id="thirdpage" href="http://thbwiki.cc"></a>
+      <br />
+      <br />
+      <br />
+      <div id="copyright">
+        <p>Powered By <a href="http://tjbaka.top">TJUGERKFER</a></p>
+        <p> 技术支持:<a href="https://www.winsloweric.cn">WinslowEric</a> BbAa</p>
+        <p id="total"></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) ||
+      /Android/i.test(navigator.userAgent) ||
+      /BlackBerry/i.test(navigator.userAgent) ||
+      /IEMobile/i.test(navigator.userAgent) ||
+      (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/
+        .test(navigator.userAgent))) {
+      if (/iPad/i.test(navigator.userAgent)) {
+        window.location.href = "wap.html";
+      } else {
+        window.location.href = "wap.html";
+      }
+    } else {
+
+    }
+  </script>
+</body>
