@@ -57,7 +57,7 @@ class Identifior {
     return ChoiceQuestion;
   }
   GetSpecialQuestion() {
-    if(this.SimpleIndex == 0){
+    if (this.SimpleIndex == 0) {
       this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
     }
     if (this.SpecialIndex < 5) {
@@ -91,7 +91,9 @@ class Question {
   no() {
     let bonuspower = this.Characters.length / (this.Identifior.CharacterList.length - this.Characters.length);
     if (this.special) {
-      this.Identifior.Characters[characterName].Score *= 0.78;
+      for (let characterName of this.Characters) {
+        this.Identifior.Characters[characterName].Score *= 0.78;
+      }
     } else {
       let addScoreCharacters = this.Identifior.CharacterList.filter(value => !this.Characters.includes(value.Name));
       for (let item of addScoreCharacters) {
