@@ -17,6 +17,7 @@ class Identifior {
     for (let value of Characters) {
       this.Characters[value.Name] = value; //转换characters数组为对象 [charactersName]:Character
     }
+    this.calcWeight();
   }
   initQuestions() {
     this.SimpleQuestions = Object.values(this.RawData.questions)
@@ -37,9 +38,42 @@ class Identifior {
     this.RawData.characters = [...Characters];
     this.initCharacter();
   }
+  calcWeight() {
+    //计算每个角色的(权?)
+    let AllQuestions = this.SimpleQuestions.concat(Object.values(this.SpecialQuestion));
+    let CharData = {}; // 每个角色在问题中的占比
+    for (let question of AllQuestions) {
+      if (question.special) {
+        //如果为特殊问题,则仅考虑符合问题的角色
+        for (let char of question.Characters) {
+          if (!(char in CharData)) CharData[char] = [];
+          CharData[char].push(1 / question.Characters.length);
+        }
+      } else {
+        //如果不是特殊问题 则考虑到所有角色
+        for (let char of question.Characters) {
+          if (!(char in CharData)) CharData[char] = [];
+          CharData[char].push(1 / question.Characters.length);
+        }
+        const NotInQuestionCharacters = this.CharacterList.filter(value => !question.Characters.includes(value.Name));
+        for (let char of NotInQuestionCharacters) {
+          if (!(char.Name in CharData)) CharData[char.Name] = [];
+          CharData[char.Name].push(1 / NotInQuestionCharacters.length);
+        }
+      }
+    }
+    CharData = Object.entries(CharData);
+    for (let [name, data] of CharData) {
+      this.Characters[name].Weight = 100 / data.reduce((a, b) => a + b);
+    }
+  }
   getQuestion() {
     //通过Score获取目前最符合的问题
-    if (this.SimpleQuestions.length == 0) return this.GetSpecialQuestion(); // 普通问题回答结束判断
+    if (this.SimpleQuestions.length == 0) {
+      let NowQuestion = this.GetSpecialQuestion();
+      if (!NowQuestion) this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
+      return NowQuestion;
+    } // 普通问题回答结束判断
     this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
     const MiddleScore = this.CharacterList[Math.round(this.CharacterList.length * 0.5)].Score;
     let ScoreHighCharacters = this.CharacterList.filter(value => value.Score >= MiddleScore); //过滤出 Score >= 中位数的人物
@@ -61,6 +95,11 @@ class Identifior {
       this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
     }
     if (this.SpecialIndex < 5) {
+      if (Object.keys(this.SpecialQuestion).length == 0) return false;
+      if (!(this.CharacterList[this.SpecialIndex].Name in this.SpecialQuestion)) {
+        this.SpecialIndex++;
+        return this.GetSpecialQuestion();
+      }
       this.askdQuestions.push(this.SpecialQuestion[this.CharacterList[this.SpecialIndex].Name]);
       const Question = this.SpecialQuestion[this.CharacterList[this.SpecialIndex].Name];
       delete this.SpecialQuestion[this.CharacterList[this.SpecialIndex].Name];
@@ -79,25 +118,21 @@ class Question {
     this.special = question.special;
   }
   yes() {
-    let bonuspower = this.Characters.length / (this.Identifior.CharacterList.length - this.Characters.length);
     for (let characterName of this.Characters) {
-      if (this.special) {
-        this.Identifior.Characters[characterName].Score += 22;
-      } else {
-        this.Identifior.Characters[characterName].Score += 100 / this.Characters.length / bonuspower;
-      }
+      this.Identifior.Characters[characterName].Score +=
+        (1 / this.Characters.length) * this.Identifior.Characters[characterName].Weight;
     }
   }
   no() {
-    let bonuspower = this.Characters.length / (this.Identifior.CharacterList.length - this.Characters.length);
     if (this.special) {
       for (let characterName of this.Characters) {
-        this.Identifior.Characters[characterName].Score *= 0.78;
+        this.Identifior.Characters[characterName].Score *= 0.8;
+        this.Identifior.SpecialIndex = 0;
       }
     } else {
       let addScoreCharacters = this.Identifior.CharacterList.filter(value => !this.Characters.includes(value.Name));
       for (let item of addScoreCharacters) {
-        item.Score += 100 / this.Characters.length / bonuspower;
+        item.Score += (1 / addScoreCharacters.length) * item.Weight;
       }
     }
   }
@@ -106,5 +141,6 @@ class Character {
   constructor(name) {
     this.Name = name;
     this.Score = 0;
+    this.Weight = 0;
   }
 }

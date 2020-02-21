@@ -7,6 +7,7 @@
   <!--<link href="https://static.bbaasite.cn/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">-->
   <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.css" rel="stylesheet">
   <script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>
+  <script src="./identifior2.js"></script>
   <style>
     * {
       text-align: center;
@@ -18,12 +19,15 @@
       color: rgb(67, 120, 150);
       margin-bottom: 0;
     }
+
     h3 {
       margin-top: 10px;
     }
-    .center{
+
+    .center {
       margin: auto;
     }
+
     @media (max-width: 720px) {
       .background {
         position: fixed;
@@ -64,19 +68,61 @@
   <div class="mdui-container" style="margin-top:75px">
     <h1>车万角色鉴定系统</h1>
     <h3>没见过的的东方角色？几个问题让你轻松初识！</h4>
-    <p>问题：</p>
-    <p id="question"></p>
-    <div class="mdui-row" style="margin-top: 35px;">
-      <div id="yes" class="mdui-col-offset-md-3 mdui-col-md-2 mdui-col-xs-4"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">是</button></div>
-      <div id="noidea" class="mdui-col-md-2 mdui-col-xs-4"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">不清楚</button></div>
-      <div id="no" class="mdui-col-md-2 mdui-col-xs-4"><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">否</button></div>
-    </div>
-    <div class="mdui-row" style="margin-top: 20px;">
-      <div class="mdui-col-xs-6 mdui-col-offset-xs-3" ><button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">重新开始</button></div>
-    </div>
+      <p>问题：</p>
+      <p id="question"></p>
+      <div class="mdui-row" style="margin-top: 35px;">
+        <div id="yes" class="mdui-col-offset-md-3 mdui-col-md-2 mdui-col-xs-4"><button
+            class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">是</button></div>
+        <div id="noidea" class="mdui-col-md-2 mdui-col-xs-4"><button
+            class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">不清楚</button></div>
+        <div id="no" class="mdui-col-md-2 mdui-col-xs-4"><button
+            class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">否</button></div>
+      </div>
+      <div class="mdui-row" style="margin-top: 20px;">
+        <div class="mdui-col-xs-6 mdui-col-offset-xs-3"><button
+            class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">重新开始</button></div>
+      </div>
   </div>
   <script>
     window.$$ = mdui.JQ;
+    function reload() {
+      window.identifior = new Identifior();
+      window.identifior.load().then(() => {
+        window.question = identifior.getQuestion();
+      })
+    }
+    (function () {
+      let question={};
+      Object.defineProperty(window, "question", {
+        set(val) {
+          //检测window.question变化
+          if(val == false){
+            showResult();
+            question = val;
+          }
+          question = val;
+          $$("#question").text(question.Question)
+        },
+        get() {
+          return question;
+        }
+      });
+    })();
+    function showResult() {
+
+    }
+    $$("#yes").on("click",(e)=>{
+      if(window.question) window.question.yes();
+      window.question = identifior.getQuestion();
+    })
+    $$("#no").on("click",(e)=>{
+      if(window.question) window.question.no();
+      window.question = identifior.getQuestion();
+    })
+    $$("#noidea").on("click",(e)=>{
+      window.question = identifior.getQuestion();
+    })
+    reload();
   </script>
 </body>
 
