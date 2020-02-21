@@ -91,7 +91,7 @@ class Identifior {
     return ChoiceQuestion;
   }
   GetSpecialQuestion() {
-    if (this.SimpleIndex == 0) {
+    if (this.SpecialIndex == 0) {
       this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
     }
     if (this.SpecialIndex < 5) {
