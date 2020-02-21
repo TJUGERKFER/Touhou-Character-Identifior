@@ -690,6 +690,11 @@
       "characters": ["二岩猯藏"],
       "special": true
     },
+    "special_堀川雷鼓": {
+      "question": "她是不是身旁有很多鼓？",
+      "characters": ["堀川雷鼓"],
+      "special": true
+    },
     "special_少名针妙丸": {
       "question": "她的帽子是黑色的吗?",
       "characters": ["少名针妙丸"],
@@ -698,6 +703,11 @@
     "special_鬼人正邪": {
       "question": "她的眼睛是红色的吗？",
       "characters": ["鬼人正邪"],
+      "special": true
+    },
+    "special_九十九弁弁": {
+      "question": "她的衣服是以黄色的吗",
+      "characters": ["九十九弁弁"],
       "special": true
     },
     "special_九十九八桥": {
@@ -735,6 +745,11 @@
       "characters": ["哆来咪·苏伊特"],
       "special": true
     },
+    "special_稀神探女": {
+      "question": "她的翅膀是白色的吗？",
+      "characters": ["稀神探女"],
+      "special": true
+    },
     "special_克劳恩皮丝": {
       "question": "她的衣服是不是红色和蓝色为主？",
       "characters": ["克劳恩皮丝"],
@@ -758,6 +773,11 @@
     "special_坂田合欢": {
       "question": "她的头发是不是灰色的？",
       "characters": ["坂田合欢"],
+      "special": true
+    },
+    "special_高丽野阿吽": {
+      "question": "她的衣服是不是有祥云图案？",
+      "characters": ["高丽野阿吽"],
       "special": true
     },
     "special_矢田寺成美": {
