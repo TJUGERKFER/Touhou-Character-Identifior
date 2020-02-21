@@ -32,7 +32,7 @@
         margin: auto;
       }
       img {
-        min-height: 100px;
+        min-height: 160px;
       }
       @media (max-width: 720px) {
         .background {
@@ -98,7 +98,7 @@
         <div class="mdui-col-xs-4">
           <div class="mdui-card">
             <div class="mdui-card-media">
-              <img />
+              <img data-order="0" />
               <div class="mdui-card-media-covered">
                 <div class="mdui-card-primary">
                   <div class="mdui-card-primary-title">名称</div>
@@ -114,7 +114,7 @@
         <div class="mdui-col-xs-4">
           <div class="mdui-card">
             <div class="mdui-card-media">
-              <img />
+              <img data-order="1" />
               <div class="mdui-card-media-covered">
                 <div class="mdui-card-primary">
                   <div class="mdui-card-primary-title">名称</div>
@@ -130,7 +130,7 @@
         <div class="mdui-col-xs-4">
           <div class="mdui-card">
             <div class="mdui-card-media">
-              <img />
+              <img data-order="2" />
               <div class="mdui-card-media-covered">
                 <div class="mdui-card-primary">
                   <div class="mdui-card-primary-title">文字</div>
@@ -166,6 +166,23 @@
           });
           $$("#reload").on("click", e => {
             reload();
+          });
+          $$(".mdui-card-media").on("click", e => {
+            let ImgJq = $$(e.currentTarget).find("img");
+            let Order = parseInt(ImgJq.data("order"));
+            let ImageName = images.filter(v => new RegExp(identifior.CharacterList[Order].Name).test(v));
+            ImageName = ImageName[Math.floor(Math.random() * ImageName.length)];
+            $$.ajax({
+              dataType: "jsonp",
+              url:
+                "https://thwiki.cc/api.php?action=query&format=json&prop=imageinfo&titles=%E6%96%87%E4%BB%B6%3A" +
+                ImageName +
+                "&iiprop=url&iiextmetadatalanguage=zh&uselang=content&smaxage=300&maxage=300",
+              success(data) {
+                let URL = Object.values(data.query.pages)[0].imageinfo[0].url;
+                ImgJq.attr("src", URL);
+              }
+            });
           });
         },
         dataType: "json"
