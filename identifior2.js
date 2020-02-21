@@ -72,6 +72,7 @@ class Identifior {
     if (this.SimpleQuestions.length == 0) {
       let NowQuestion = this.GetSpecialQuestion();
       if (!NowQuestion) this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
+      if (this.CharacterList[0].Score > 95) return false;
       return NowQuestion;
     } // 普通问题回答结束判断
     this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序;
