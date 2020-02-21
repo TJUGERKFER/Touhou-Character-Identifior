@@ -105,7 +105,7 @@
               </div>
             </div>
             <div class="mdui-card-actions mdui-card-actions-stacked">
-              <button class="mdui-btn mdui-ripple mdui-btn-block" data-button="thb">前往THBWIKI</button>
+              <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@
               </div>
             </div>
             <div class="mdui-card-actions mdui-card-actions-stacked">
-              <button class="mdui-btn mdui-ripple mdui-btn-block" data-button="thb">前往THBWIKI</button>
+              <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@
               </div>
             </div>
             <div class="mdui-card-actions mdui-card-actions-stacked">
-              <button class="mdui-btn mdui-ripple mdui-btn-block" data-button="thb">前往THBWIKI</button>
+              <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
             </div>
           </div>
         </div>
@@ -172,7 +172,10 @@
         $$("#result").hide();
         window.identifior = new Identifior();
         window.identifior.load().then(() => {
-          $$(".mdui-col-offset-md-3").parent().find("button").prop("disabled",false)
+          $$(".mdui-col-offset-md-3")
+            .parent()
+            .find("button")
+            .prop("disabled", false);
           window.question = identifior.getQuestion();
         });
       }
@@ -195,7 +198,10 @@
       })();
       function showResult() {
         $$("#result").show();
-        $$(".mdui-col-offset-md-3").parent().find("button").prop("disabled",true)
+        $$(".mdui-col-offset-md-3")
+          .parent()
+          .find("button")
+          .prop("disabled", true);
         let resultCards = $$("#result").children();
         for (let i = 0; i < resultCards.length; i++) {
           $$(resultCards[i])
@@ -204,16 +210,24 @@
           $$(resultCards[i])
             .find(".mdui-card-primary-subtitle span")
             .text(identifior.CharacterList[i].Score.toFixed(3) + "%");
-          let ImageName=images.filter(v => new RegExp(identifior.CharacterList[i].Name).test(v))
-          ImageName=ImageName[Math.floor(Math.random()*ImageName.length)];
+          $$(resultCards[i])
+            .find("a")
+            .attr("https://thwiki.cc/" + identifior.CharacterList[i].Name);
+          let ImageName = images.filter(v => new RegExp(identifior.CharacterList[i].Name).test(v));
+          ImageName = ImageName[Math.floor(Math.random() * ImageName.length)];
           $$.ajax({
-            dataType:"jsonp",
-            url:"https://thwiki.cc/api.php?action=query&format=json&prop=imageinfo&titles=%E6%96%87%E4%BB%B6%3A"+ImageName+"&iiprop=url&iiextmetadatalanguage=zh&uselang=content&smaxage=300&maxage=300",
-            success(data){
-              let URL=Object.values(data.query.pages)[0].imageinfo[0].url;
-              $$(resultCards[i]).find("img").attr("src",URL)
+            dataType: "jsonp",
+            url:
+              "https://thwiki.cc/api.php?action=query&format=json&prop=imageinfo&titles=%E6%96%87%E4%BB%B6%3A" +
+              ImageName +
+              "&iiprop=url&iiextmetadatalanguage=zh&uselang=content&smaxage=300&maxage=300",
+            success(data) {
+              let URL = Object.values(data.query.pages)[0].imageinfo[0].url;
+              $$(resultCards[i])
+                .find("img")
+                .attr("src", URL);
             }
-          })
+          });
         }
       }
     </script>
