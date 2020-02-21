@@ -212,7 +212,7 @@
             .text(identifior.CharacterList[i].Score.toFixed(3) + "%");
           $$(resultCards[i])
             .find("a")
-            .attr("https://thwiki.cc/" + identifior.CharacterList[i].Name);
+            .attr("href","https://thwiki.cc/" + identifior.CharacterList[i].Name);
           let ImageName = images.filter(v => new RegExp(identifior.CharacterList[i].Name).test(v));
           ImageName = ImageName[Math.floor(Math.random() * ImageName.length)];
           $$.ajax({
