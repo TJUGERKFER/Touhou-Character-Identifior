@@ -98,7 +98,7 @@ class Identifior {
       }, 0); //累加器
       return [Score, value];
     }).sort((a, b) => b[0] - a[0] /* [0]是分数 */)[0 /*取分数最高*/][1 /*问题*/]; // 给每个问题进行打分并且排序，取包含相关度高人物最多的问题 结构 [Score,Question]
-    this.askdQuestions.push(this.Questions.splice(this.Questions.indexOf(ChoiceQuestion), 1));
+    this.askdQuestions.push(this.Questions.splice(this.Questions.indexOf(ChoiceQuestion), 1)[0]);
     return ChoiceQuestion;
   }
 }
