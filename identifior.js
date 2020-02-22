@@ -65,7 +65,7 @@ class Identifior {
             Characters[characterName]++;
           }
         } else if (SingleQuestion.State > 0) {
-          for (let characterName of SingleQuestion.Character) {
+          for (let characterName of SingleQuestion.Characters) {
             if (!Characters[characterName]) Characters[characterName] = 0;
             Characters[characterName]++;
           }
