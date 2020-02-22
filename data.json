@@ -250,8 +250,6 @@
         "米斯蒂娅·萝蕾拉",
         "灵乌路空",
         "封兽鵺",
-        "堀川雷鼓",
-        "九十九弁弁",
         "稀神探女",
         "爱塔妮缇拉尔瓦",
         "庭渡久侘歌",
@@ -266,6 +264,7 @@
       "question": "这个角色的手上拿着东西吗？",
       "characters": [
         "博丽灵梦",
+        "九十九弁弁",
         "雾雨魔理沙",
         "大妖精",
         "帕秋莉",
@@ -312,6 +311,7 @@
         "埴安神袿姬",
         "比那名居天子",
         "秦心",
+        "堀川雷鼓",
         "依神紫苑",
         "依神女苑"
       ]
@@ -350,9 +350,7 @@
         "灵乌路空",
         "娜兹玲",
         "寅丸星",
-        "二岩猯藏",
-        "堀川雷鼓",
-        "九十九弁弁",
+        "二岩猯藏",        
         "今泉影狼",
         "若鹭姬",
         "清兰",
@@ -365,421 +363,224 @@
         "吉吊八千慧"
       ]
     },
-    "special_博丽灵梦": {
+    "博丽灵梦": {
       "question": "她手中的道具是御币吗？",
-      "characters": ["博丽灵梦"]
+      "characters": ["博丽灵梦","东风谷早苗"]
     },
-    "special_雾雨魔理沙": {
+    "雾雨魔理沙": {
       "question": "她手中的道具是扫把吗？",
-      "characters": ["雾雨魔理沙"]
+      "characters": ["雾雨魔理沙","幽谷响子"]
     },
-    "special_露米娅": {
+    "露米娅": {
       "question": "她的手臂呈十字架形吗？",
       "characters": ["露米娅"]
     },
-    "special_琪露诺": {
+    "琪露诺": {
       "question": "她的翅膀由六根冰晶组成吗？",
       "characters": ["琪露诺"]
     },
-    "special_大妖精": {
+    "大妖精": {
       "question": "她的头发是绿色的吗？",
-      "characters": ["大妖精"]
+      "characters": ["大妖精","风见幽香","琪斯美","四季映姬·夜摩仙那度","键山雏"]
+      
     },
-    "special_红美铃": {
+    "红美铃": {
       "question": "她看起来会武术吗？",
       "characters": ["红美铃"]
     },
-    "special_小恶魔": {
+    "小恶魔": {
       "question": "她背后有恶魔翅膀吗？",
-      "characters": ["小恶魔"]
+      "characters": ["小恶魔","蕾米莉亚·斯卡蕾特"]
+      
     },
-    "special_帕秋莉": {
+    "帕秋莉": {
       "question": "她手中的道具是魔法书吗？",
-      "characters": ["帕秋莉"]
+      "characters": ["帕秋莉","爱丽丝·玛格特洛依德"]
+      
     },
-    "special_十六夜咲夜": {
+    "十六夜咲夜": {
       "question": "她手中的道具是飞刀吗？",
       "characters": ["十六夜咲夜"]
     },
-    "special_蕾米莉亚·斯卡蕾特": {
-      "question": "她背后有恶魔翅膀吗？",
-      "characters": ["蕾米莉亚·斯卡蕾特"]
-    },
-    "special_芙兰朵露·斯卡蕾特": {
+    "芙兰朵露·斯卡蕾特": {
       "question": "她的翅膀上有水晶吗？",
       "characters": ["芙兰朵露·斯卡蕾特"]
     },
-    "special_蕾蒂·霍瓦特洛克": {
+    "蕾蒂·霍瓦特洛克": {
       "question": "她戴着一顶白色帽子吗？",
       "characters": ["蕾蒂·霍瓦特洛克"]
     },
-    "special_橙": {
+    "橙": {
       "question": "她有两条尾巴吗？",
       "characters": ["橙"]
     },
-    "special_爱丽丝·玛格特洛依德": {
-      "question": "她手中的道具是魔法书吗",
-      "characters": ["爱丽丝·玛格特洛依德"]
-    },
-    "special_莉莉霍瓦特": {
+    "莉莉霍瓦特": {
       "question": "她的翅膀看起来像蝴蝶吗",
-      "characters": ["莉莉霍瓦特"]
+      "characters": ["莉莉霍瓦特","莉莉霍瓦特","大妖精"]
     },
-    "special_露娜萨·普莉兹姆利巴": {
-      "question": "她手里拿的是提琴吗？",
-      "characters": ["露娜萨·普莉兹姆利巴"]
+    "露娜萨·普莉兹姆利巴": {
+      "question": "她手里拿的是乐器吗？",
+      "characters": ["露娜萨·普莉兹姆利巴","梅露兰·普莉兹姆利巴","莉莉卡·普莉兹姆利巴","九十九八桥","九十九弁弁","堀川雷鼓"]
     },
-    "special_梅露兰·普莉兹姆利巴": {
-      "question": "她手里拿的是小号吗？",
-      "characters": ["梅露兰·普莉兹姆利巴"]
+    "魂魄妖梦": {
+      "question": "她手中拿着武器吗？",
+      "characters": ["魂魄妖梦","坂田合欢","犬走椛","八意永琳","杖刀偶磨弓","小野塚小町"]
+    
     },
-    "special_莉莉卡·普莉兹姆利巴": {
-      "question": "她手里拿的是琴吗？",
-      "characters": ["莉莉卡·普莉兹姆利巴"]
-    },
-    "special_魂魄妖梦": {
-      "question": "她身旁飘着灵魂吗？",
-      "characters": ["魂魄妖梦"]
-    },
-    "special_西行寺幽幽子": {
+    "西行寺幽幽子": {
       "question": "她手里拿着扇子吗？",
-      "characters": ["西行寺幽幽子"]
+      "characters": ["西行寺幽幽子","秦心"]
+      
     },
-    "special_八云蓝": {
+    "八云蓝": {
       "question": "她是狐狸吗",
       "characters": ["八云蓝"]
     },
-    "special_八云紫": {
-      "question": "她手上拿着花伞吗",
-      "characters": ["八云紫"]
+    "八云紫": {
+      "question": "她手上拿着伞吗",
+      "characters": ["八云紫","多多良小伞","风见幽香"]
+      
     },
-    "special_莉格露·奈特巴格": {
-      "question": "她头上有触角吗？",
-      "characters": ["莉格露·奈特巴格"]
+    "莉格露·奈特巴格": {
+      "question": "她头上有触角/角吗？",
+      "characters": ["莉格露·奈特巴格","伊吹萃香","星熊勇仪","鬼人正邪","吉吊八千慧"]
+      
     },
-    "special_米斯蒂娅·萝蕾拉": {
+    "米斯蒂娅·萝蕾拉": {
       "question": "她是鸟吗？",
-      "characters": ["米斯蒂娅·萝蕾拉"]
+      "characters": ["米斯蒂娅·萝蕾拉","庭渡久侘歌","灵乌路空"]
     },
-    "special_上白泽慧音": {
+    "上白泽慧音": {
       "question": "她头上顶着奇怪的帽子吗？",
       "characters": ["上白泽慧音"]
     },
-    "special_因幡帝": {
+    "因幡帝": {
       "question": "她长着兔耳吗？",
-      "characters": ["因幡帝"]
+      "characters": ["因幡帝","铃仙·优昙华院·因幡","铃瑚","清兰"]
     },
-    "special_铃仙·优昙华院·因幡": {
+    "铃仙·优昙华院·因幡": {
       "question": "她穿着制服吗？",
-      "characters": ["铃仙·优昙华院·因幡"]
+      "characters": ["铃仙·优昙华院·因幡","村纱水蜜","十六夜咲夜"]
     },
-    "special_八意永琳": {
+    "八意永琳": {
       "question": "她手中拿着弓吗？",
       "characters": ["八意永琳"]
     },
-    "special_蓬莱山辉夜": {
+    "蓬莱山辉夜": {
       "question": "她手中拿着蓬莱玉枝吗？",
       "characters": ["蓬莱山辉夜"]
     },
-    "special_藤原妹红": {
+    "藤原妹红": {
       "question": "她穿着背带裤吗？",
       "characters": ["藤原妹红"]
     },
-    "special_射命丸文": {
+    "射命丸文": {
       "question": "她看起来跑得很快吗？",
       "characters": ["射命丸文"]
     },
-    "special_梅蒂欣·梅兰可莉": {
+    "梅蒂欣·梅兰可莉": {
       "question": "她是人偶吗",
       "characters": ["梅蒂欣·梅兰可莉"]
     },
-    "special_风见幽香": {
-      "question": "她身上有花作装饰吗",
-      "characters": ["风见幽香"]
+    "风见幽香": {
+      "question": "她是绿毛吗",
+      "characters": ["风见幽香","大妖精","东风谷早苗","四季映姬·夜摩仙那度","琪斯美"]
     },
-    "special_小野塚小町": {
+    "苏我屠自古": {
+      "question": "她看上去和幽灵有关吗？",
+      "characters": ["苏我屠自古","魂魄妖梦","西行寺幽幽子"]
+    },
+    "小野塚小町": {
       "question": "她拿着镰刀？",
       "characters": ["小野塚小町"]
     },
-    "special_四季映姬·夜摩仙那度": {
-      "question": "她拿着悔悟之棒吗",
-      "characters": ["四季映姬·夜摩仙那度"]
-    },
-    "special_秋静叶": {
-      "question": "她看起来有秋天的感觉吗？",
-      "characters": ["秋静叶"]
-    },
-    "special_秋穰子": {
+    "秋静叶": {
+      "question": "她是金（黄）发吗？",
+      "characters": ["秋静叶","秋穰子","水桥帕露西","黑谷山女","寅丸星","芙兰朵露·斯卡蕾特","吉吊八千慧","庭渡久侘歌","爱丽丝·玛格特洛依德","纯狐"]
+      },
+    "秋穰子": {
       "question": "她看起来像红薯吗",
       "characters": ["秋穰子"]
     },
-    "special_键山雏": {
+    "键山雏": {
       "question": "她头上的发带和她的头发红配绿吗？",
       "characters": ["键山雏"]
     },
-    "special_河城荷取": {
+    "河城荷取": {
       "question": "她手中拿着狗尾草或者水枪吗",
       "characters": ["河城荷取"]
     },
-    "special_犬走椛": {
+    "犬走椛": {
       "question": "她拿着刀和盾吗",
       "characters": ["犬走椛"]
     },
-    "special_东风谷早苗": {
+    "东风谷早苗": {
       "question": "她头发上有蛇形饰物吗",
       "characters": ["东风谷早苗"]
     },
-    "special_八坂神奈子": {
+    "八坂神奈子": {
       "question": "她背后背着像麻花一样的东西吗",
       "characters": ["八坂神奈子"]
     },
-    "special_洩矢诹访子": {
+    "洩矢诹访子": {
       "question": "她帽子上有眼睛吗",
       "characters": ["洩矢诹访子"]
     },
-    "special_琪斯美": {
+    "琪斯美": {
       "question": "她坐在桶里吗？",
       "characters": ["琪斯美"]
     },
-    "special_黑谷山女": {
+    "黑谷山女": {
       "question": "她穿着泡泡裤吗？",
       "characters": ["黑谷山女"]
     },
-    "special_水桥帕露西": {
-      "question": "她看起来一副忧郁/嫉妒脸吗？",
-      "characters": ["水桥帕露西"]
-    },
-    "special_星熊勇仪": {
-      "question": "她头上有一只角吗？",
-      "characters": ["星熊勇仪"]
-    },
-    "special_古明地觉": {
+    "古明地觉": {
       "question": "她胸口有紧闭的眼睛饰物吗",
       "characters": ["古明地觉"]
     },
-    "special_火焰猫燐": {
+    "火焰猫燐": {
       "question": "她是猫吗？",
-      "characters": ["火焰猫燐"]
+      "characters": ["火焰猫燐","橙"]
     },
-    "special_灵乌路空": {
+    "灵乌路空": {
       "question": "她手上套着一个核燃料棒吗？",
       "characters": ["灵乌路空"]
     },
-    "special_古明地恋": {
+    "古明地恋": {
       "question": "她胸口有打开的眼睛饰物吗",
       "characters": ["古明地恋"]
     },
-    "special_娜兹玲": {
+    "娜兹玲": {
       "question": "她是老鼠吗？",
       "characters": ["娜兹玲"]
     },
-    "special_多多良小伞": {
+    "多多良小伞": {
       "question": "她的伞有舌头吗？",
       "characters": ["多多良小伞"]
     },
-    "special_云居一轮": {
-      "question": "她看起来像宗教信徒吗？",
-      "characters": ["云居一轮"]
-    },
-    "special_村纱水蜜": {
+    "村纱水蜜": {
       "question": "她看起来像舰长吗？",
       "characters": ["村纱水蜜"]
     },
-    "special_寅丸星": {
+    "寅丸星": {
       "question": "她看起来像老虎吗？",
       "characters": ["寅丸星"]
     },
-    "special_圣白莲": {
+    "圣白莲": {
       "question": "她头发和身边有咒语吗？",
       "characters": ["圣白莲"]
     },
-    "special_封兽鵺": {
+    "封兽鵺": {
       "question": "她的翅膀看起来很特别吗？",
       "characters": ["封兽鵺"]
     },
-    "special_幽谷响子": {
-      "question": "她拿着跟扫把吗？",
-      "characters": ["幽谷响子"]
-    },
-    "special_宫古芳香": {
+    "宫古芳香": {
       "question": "她是僵尸吗？",
       "characters": ["宫古芳香"]
     },
-    "special_霍青娥": {
+    "霍青娥": {
       "question": "她头上有个八字辫吗？",
       "characters": ["霍青娥"]
-    },
-    "special_苏我屠自古": {
-      "question": "她看起来像幽灵吗？",
-      "characters": ["苏我屠自古"]
-    },
-    "special_物部布都": {
-      "question": "她头上有个高高的帽子吗？",
-      "characters": ["物部布都"]
-    },
-    "special_丰聪耳神子": {
-      "question": "她戴着耳机(?)吗？",
-      "characters": ["丰聪耳神子"]
-    },
-    "special_二岩猯藏": {
-      "question": "她看起来像狸猫吗？",
-      "characters": ["二岩猯藏"]
-    },
-    "special_堀川雷鼓": {
-      "question": "她是不是身旁有很多鼓？",
-      "characters": ["堀川雷鼓"]
-    },
-    "special_少名针妙丸": {
-      "question": "她的帽子是黑色的吗?",
-      "characters": ["少名针妙丸"]
-    },
-    "special_鬼人正邪": {
-      "question": "她的眼睛是红色的吗？",
-      "characters": ["鬼人正邪"]
-    },
-    "special_九十九弁弁": {
-      "question": "她的衣服是以黄色的吗",
-      "characters": ["九十九弁弁"]
-    },
-    "special_九十九八桥": {
-      "question": "他她是短发吗？",
-      "characters": ["九十九八桥"]
-    },
-    "special_今泉影狼": {
-      "question": "她的裙子是以红白为主吗？",
-      "characters": ["今泉影狼"]
-    },
-    "special_赤蛮奇": {
-      "question": "她头上的蝴蝶结是不是紫色的？",
-      "characters": ["赤蛮奇"]
-    },
-    "special_若鹭姬": {
-      "question": "她是人鱼吗？",
-      "characters": ["若鹭姬"]
-    },
-    "special_清兰": {
-      "question": "她有没有兔耳朵？",
-      "characters": ["清兰"]
-    },
-    "special_铃瑚": {
-      "question": "她的衣服是黄色的吗",
-      "characters": ["铃瑚"]
-    },
-    "special_哆来咪·苏伊特": {
-      "question": "她的帽子是红色的吗？",
-      "characters": ["哆来咪·苏伊特"]
-    },
-    "special_稀神探女": {
-      "question": "她的翅膀是白色的吗？",
-      "characters": ["稀神探女"]
-    },
-    "special_克劳恩皮丝": {
-      "question": "她的衣服是不是红色和蓝色为主？",
-      "characters": ["克劳恩皮丝"]
-    },
-    "special_纯狐": {
-      "question": "她的衣服是黑色为主吗？",
-      "characters": ["纯狐"]
-    },
-    "special_赫卡提亚·拉碧斯拉祖利": {
-      "question": "她的头发是不是红色的？",
-      "characters": ["赫卡提亚·拉碧斯拉祖利"]
-    },
-    "special_爱塔妮缇拉尔瓦": {
-      "question": "她的衣服是不是绿色的？",
-      "characters": ["爱塔妮缇拉尔瓦"]
-    },
-    "special_坂田合欢": {
-      "question": "她的头发是不是灰色的？",
-      "characters": ["坂田合欢"]
-    },
-    "special_高丽野阿吽": {
-      "question": "她的衣服是不是有祥云图案？",
-      "characters": ["高丽野阿吽"]
-    },
-    "special_矢田寺成美": {
-      "question": "她的裙子是灰色为主吗？",
-      "characters": ["矢田寺成美"]
-    },
-    "special_摩多罗隐岐奈": {
-      "question": "她的衣服是以黄色为主吗?",
-      "characters": ["摩多罗隐岐奈"]
-    },
-    "special_尔子田里乃": {
-      "question": "她手里是不是拿着草叶？",
-      "characters": ["尔子田里乃"]
-    },
-    "special_丁礼田舞": {
-      "question": "她是不是手里拿着竹子？",
-      "characters": ["丁礼田舞"]
-    },
-    "special_戎璎花": {
-      "question": "她的裙子是以白色为主吗？",
-      "characters": ["戎璎花"]
-    },
-    "special_牛崎润美": {
-      "question": "她的头发是不是一半黑一半白？",
-      "characters": ["牛崎润美"]
-    },
-    "special_庭渡久侘歌": {
-      "question": "她的帽子是红色的吗？",
-      "characters": ["庭渡久侘歌"]
-    },
-    "special_吉吊八千慧": {
-      "question": "她是不是有黄色的鹿角？",
-      "characters": ["吉吊八千慧"]
-    },
-    "special_杖刀偶磨弓": {
-      "question": "她的衣服是以黄色为主吗",
-      "characters": ["杖刀偶磨弓"]
-    },
-    "special_埴安神袿姬": {
-      "question": "她身上是不是带着雕刻刀？",
-      "characters": ["埴安神袿姬"]
-    },
-    "special_骊驹早鬼": {
-      "question": "她的帽子是红色的吗？",
-      "characters": ["骊驹早鬼"]
-    },
-    "special_永江衣玖": {
-      "question": "她的头发是不是紫色的？",
-      "characters": ["永江衣玖"]
-    },
-    "special_比那名居天子": {
-      "question": "她的帽子上面有没有草叶？",
-      "characters": ["比那名居天子"]
-    },
-    "special_秦心": {
-      "question": "她的头上是不是有一个类似于面具的东西？",
-      "characters": ["秦心"]
-    },
-    "special_依神紫苑": {
-      "question": "她的头发是深蓝色的吗？",
-      "characters": ["依神紫苑"]
-    },
-    "special_依神女苑": {
-      "question": "她的衣服是不是紫色的？",
-      "characters": ["依神女苑"]
-    },
-    "special_宇佐见堇子": {
-      "question": "她是不是带着眼镜？",
-      "characters": ["宇佐见堇子"]
-    },
-    "special_桑妮米尔克": {
-      "question": "她的裙子是以红白为主吗？",
-      "characters": ["桑妮米尔克"]
-    },
-    "special_露娜切露德": {
-      "question": "她的裙子是以黑白为主吗？",
-      "characters": ["露娜切露德"]
-    },
-    "special_斯塔萨菲雅": {
-      "question": "她的裙子上有星星吗？",
-      "characters": ["斯塔萨菲雅"]
-    },
-    "special_姬海棠果": {
-      "question": "她的翅膀是黑色的吗？",
-      "characters": ["姬海棠果"]
     }
   }
 }
