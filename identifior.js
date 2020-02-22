@@ -63,6 +63,7 @@ class Identifior {
   }
   getQuestion() {
     //通过Score获取目前最符合的问题
+    if (this.Questions.length == 0) return false;
     if (Math.max(...this.CharacterList.map(a => a.Score)) > 95) return false; //当最大可信度>95%结束提问
     this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序（人物分数）;
     const MiddleScore = this.CharacterList[Math.round(this.CharacterList.length * this.QuestionSpilt)].Score;
