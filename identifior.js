@@ -1,7 +1,7 @@
 class Identifior {
   constructor() {
     this.SpecialIndex = 0;
-    this.QuestionSpilt = 0.5;
+    this.__QuestionSpilt = 0.5;
   }
   async load() {
     await fetch("./data.json")
@@ -37,24 +37,16 @@ class Identifior {
     let AllQuestions = this.Questions; //拼接数组
     let CharData = {}; // 每个角色在问题中的占比
     for (let question of AllQuestions) {
-      if (question.special) {
-        //如果为特殊问题,则仅考虑符合问题的角色
-        for (let char of question.Characters) {
-          if (!(char in CharData)) CharData[char] = [];
-          CharData[char].push(1 / question.Characters.length);
-        }
-      } else {
-        //如果不是特殊问题 则考虑到所有角色
-        for (let char of question.Characters) {
-          if (!(char in CharData)) CharData[char] = [];
-          CharData[char].push(1 / question.Characters.length);
-        }
-        const NotInQuestionCharacters = this.CharacterList.filter(value => !question.Characters.includes(value.Name));
-        for (let char of NotInQuestionCharacters) {
-          if (!(char.Name in CharData)) CharData[char.Name] = [];
-          CharData[char.Name].push(1 / NotInQuestionCharacters.length);
-        }
+      for (let char of question.Characters) {
+        if (!(char in CharData)) CharData[char] = [];
+        CharData[char].push(1 / question.Characters.length);
       }
+      const NotInQuestionCharacters = this.CharacterList.filter(value => !question.Characters.includes(value.Name));
+      for (let char of NotInQuestionCharacters) {
+        if (!(char.Name in CharData)) CharData[char.Name] = [];
+        CharData[char.Name].push(1 / NotInQuestionCharacters.length);
+      }
+      question.NotInQuestionCharacters = NotInQuestionCharacters;
     }
     CharData = Object.entries(CharData);
     for (let [name, data] of CharData) {
@@ -62,12 +54,35 @@ class Identifior {
     }
   }
   getQuestion() {
+    const question = this._getQuestion();
+    const finish = !question;
+    if (finish) {
+      let Characters = {};
+      for (let SingleQuestion of this.askdQuestions) {
+        if (SingleQuestion.State < 0) {
+          for (let characterName of SingleQuestion.NotInQuestionCharacters) {
+            if (!Characters[characterName]) Characters[characterName] = 0;
+            Characters[characterName]++;
+          }
+        } else if (SingleQuestion.State > 0) {
+          for (let characterName of SingleQuestion.Character) {
+            if (!Characters[characterName]) Characters[characterName] = 0;
+            Characters[characterName]++;
+          }
+        }
+      }
+      for (let [characterName, Count] of Object.entries(Characters)) {
+        this.Characters[characterName].Score = (Count / this.askdQuestions.length) * 100;
+      }
+    }
+    return question;
+  }
+  _getQuestion() {
     //通过Score获取目前最符合的问题
     if (this.Questions.length == 0) return false;
-    if (Math.max(...this.CharacterList.map(a => a.Score)) > 95) return false; //当最大可信度>95%结束提问
     this.CharacterList.sort((a, b) => b.Score - a.Score); // 从大到小进行排序（人物分数）;
-    const MiddleScore = this.CharacterList[Math.round(this.CharacterList.length * this.QuestionSpilt)].Score;
-    this.QuestionSpilt *= 0.85;
+    const MiddleScore = this.CharacterList[Math.round(this.CharacterList.length * this.__QuestionSpilt)].Score;
+    this.__QuestionSpilt *= 0.85;
     let ScoreHighCharacters = this.CharacterList.filter(value => value.Score >= MiddleScore); //过滤出 Score >= 中位数的人物
     if (ScoreHighCharacters.length <= 5) return false; //当剩下角色不足5结束提问
     const ChoiceQuestion = this.Questions.map(value => {
@@ -92,14 +107,17 @@ class Question {
     this.Identifior = identifior;
     this.Question = question.question;
     this.Characters = question.characters;
+    this.State = 0;
   }
   yes() {
+    this.State = 1;
     for (let characterName of this.Characters) {
       this.Identifior.Characters[characterName].Score +=
         (1 / this.Characters.length) * this.Identifior.Characters[characterName].Weight; //加分
     }
   }
   no() {
+    this.State = -1;
     let addScoreCharacters = this.Identifior.CharacterList.filter(value => !this.Characters.includes(value.Name));
     for (let item of addScoreCharacters) {
       item.Score += (1 / addScoreCharacters.length) * item.Weight; //加分
@@ -107,7 +125,6 @@ class Question {
   }
 }
 class Character {
-  // 这个对象没有任何原型功能
   constructor(name) {
     this.Name = name;
     this.Score = 0;
