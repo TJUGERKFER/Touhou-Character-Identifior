@@ -46,7 +46,7 @@ class Identifior {
         if (!(char.Name in CharData)) CharData[char.Name] = [];
         CharData[char.Name].push(1 / NotInQuestionCharacters.length);
       }
-      question.NotInQuestionCharacters = NotInQuestionCharacters;
+      question.NotInQuestionCharacters = NotInQuestionCharacters.map(v => v.Name);
     }
     CharData = Object.entries(CharData);
     for (let [name, data] of CharData) {
