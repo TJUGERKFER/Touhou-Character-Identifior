@@ -222,15 +222,9 @@
           .prop("disabled", true);
         let resultCards = $$("#result").children();
         for (let i = 0; i < resultCards.length; i++) {
-          $$.ajax({
-            dataType: "jsonp",  //庸医修复 thb载图完成前替换笨蛋祈祷中图片
-            url:"loading.png",
-            success(data) {
-              $$(resultCards[i])
+          $$(resultCards[i])
                 .find("img")
-                .attr("loading.png");
-            }
-          });
+                .attr("src","./loading.png");
         }
         $$("#result").show();
         for (let i = 0; i < resultCards.length; i++) {
