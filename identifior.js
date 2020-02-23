@@ -18,7 +18,7 @@ class Identifior {
     for (let value of Characters) {
       this.Characters[value.Name] = value; //转换characters数组为对象 [charactersName]:Character
     }
-    this.calcWeight();
+    this.calcWeight(this.Questions);
   }
   initQuestions() {
     this.Questions = Object.values(this.RawData.questions).map(value => new Question(value, this));
@@ -32,9 +32,8 @@ class Identifior {
     this.RawData.characters = [...Characters];
     this.initCharacter();
   }
-  calcWeight() {
+  calcWeight(AllQuestions) {
     //计算每个角色的(权?)
-    let AllQuestions = this.Questions; //拼接数组
     let CharData = {}; // 每个角色在问题中的占比
     for (let question of AllQuestions) {
       for (let char of question.Characters) {
@@ -51,29 +50,28 @@ class Identifior {
     CharData = Object.entries(CharData);
     for (let [name, data] of CharData) {
       this.Characters[name].Weight = 100 / data.reduce((a, b) => a + b);
+      this.Characters[name].Score = 0;
     }
   }
   getQuestion() {
     const question = this._getQuestion();
     const finish = !question;
     if (finish) {
-      let Characters = {};
+      this.calcWeight(this.askdQuestions); // 重新计算权值
       for (let SingleQuestion of this.askdQuestions) {
         if (SingleQuestion.State < 0) {
+          // No
           for (let characterName of SingleQuestion.NotInQuestionCharacters) {
-            if (!Characters[characterName]) Characters[characterName] = 0;
-            Characters[characterName]++;
+            this.Characters[characterName].Score += (1 / SingleQuestion.NotInQuestionCharacters.length) * this.Characters[characterName].Weight;
           }
         } else if (SingleQuestion.State > 0) {
+          // Yes
           for (let characterName of SingleQuestion.Characters) {
-            if (!Characters[characterName]) Characters[characterName] = 0;
-            Characters[characterName]++;
+            this.Characters[characterName].Score += (1 / SingleQuestion.Characters.length) * this.Characters[characterName].Weight;
           }
         }
       }
-      for (let [characterName, Count] of Object.entries(Characters)) {
-        this.Characters[characterName].Score = (Count / this.askdQuestions.length) * 100;
-      }
+      this.CharacterList.sort((a, b) => b.Score - a.Score);
     }
     return question;
   }
