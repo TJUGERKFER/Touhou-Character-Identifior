@@ -216,6 +216,18 @@
         });
       })();
       function showResult() {
+        for (let i = 0; i < resultCards.length; i++) {
+          $$.ajax({
+            dataType: "jsonp",  //庸医修复 thb载图完成前替换笨蛋祈祷中图片
+            url:"loading.png",
+            success(data) {
+              let URL = Object.values(data.query.pages)[0].imageinfo[0].url;
+              $$(resultCards[i])
+                .find("img")
+                .attr("src", URL);
+            }
+          });
+        }
         $$("#result").show();
         $$(".mdui-col-offset-md-3")
           .parent()
