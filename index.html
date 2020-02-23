@@ -216,6 +216,11 @@
         });
       })();
       function showResult() {
+        $$(".mdui-col-offset-md-3")
+          .parent()
+          .find("button")
+          .prop("disabled", true);
+        let resultCards = $$("#result").children();
         for (let i = 0; i < resultCards.length; i++) {
           $$.ajax({
             dataType: "jsonp",  //庸医修复 thb载图完成前替换笨蛋祈祷中图片
@@ -229,11 +234,6 @@
           });
         }
         $$("#result").show();
-        $$(".mdui-col-offset-md-3")
-          .parent()
-          .find("button")
-          .prop("disabled", true);
-        let resultCards = $$("#result").children();
         for (let i = 0; i < resultCards.length; i++) {
           $$(resultCards[i])
             .find(".mdui-card-primary-title")
