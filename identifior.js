@@ -51,12 +51,14 @@ class Identifior {
     for (let [name, data] of CharData) {
       this.Characters[name].Weight =
         (this.Questions == AllQuestions ? 100 - this.Characters[name].Score : 100) / data.reduce((a, b) => a + b);
-      this.Characters[name].Score = 0;
+      if (this.askdQuestions == AllQuestions) {
+        this.Characters[name].Score = 0;
+      }
     }
   }
   getQuestion() {
-    const question = this._getQuestion();
-    const finish = !question;
+    const ChoiceQuestion = this._getQuestion();
+    const finish = !ChoiceQuestion;
     if (finish) {
       this.calcWeight(this.askdQuestions); // 重新计算权值
       for (let SingleQuestion of this.askdQuestions) {
@@ -77,6 +79,7 @@ class Identifior {
       this.CharacterList.sort((a, b) => b.Score - a.Score);
     } else {
       this.calcWeight(this.Questions); // 重新计算权值
+      this.askdQuestions.push(this.Questions.splice(this.Questions.indexOf(ChoiceQuestion), 1)[0]);
     }
     console.group(`第${this.askdQuestions.length}个问题`);
     console.log(
@@ -86,22 +89,28 @@ class Identifior {
         }, 0) /
           this.CharacterList.length
     );
-    let MaxWeight=this.CharacterList.reduce((a,b)=>{
-      if(b.Weight>a.Weight) {
-        return b
-      }
-      return a;
-    },{Weight:-Infinity})
+    let MaxWeight = this.CharacterList.reduce(
+      (a, b) => {
+        if (b.Weight > a.Weight) {
+          return b;
+        }
+        return a;
+      },
+      { Weight: -Infinity }
+    );
     console.log("最大权值" + MaxWeight.Weight + " " + MaxWeight.Name);
-    let MinWeight=this.CharacterList.reduce((a,b)=>{
-      if(b.Weight<a.Weight) {
-        return b
-      }
-      return a;
-    },{Weight:Infinity})
+    let MinWeight = this.CharacterList.reduce(
+      (a, b) => {
+        if (b.Weight < a.Weight) {
+          return b;
+        }
+        return a;
+      },
+      { Weight: Infinity }
+    );
     console.log("最小权值" + MinWeight.Weight + " " + MinWeight.Name);
     console.groupEnd(`第${this.askdQuestions.length}个问题`);
-    return question;
+    return ChoiceQuestion;
   }
   _getQuestion() {
     //通过Score获取目前最符合的问题
@@ -124,7 +133,6 @@ class Identifior {
       }, 0); //累加器
       return [Score, value];
     }).sort((a, b) => b[0] - a[0] /* [0]是分数 */)[0 /*取分数最高*/][1 /*问题*/]; // 给每个问题进行打分并且排序，取包含相关度高人物最多的问题 结构 [Score,Question]
-    this.askdQuestions.push(this.Questions.splice(this.Questions.indexOf(ChoiceQuestion), 1)[0]);
     return ChoiceQuestion;
   }
 }

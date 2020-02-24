@@ -26,7 +26,7 @@
       h3 {
         margin-top: 10px;
       }
-      .mdui-container{
+      .mdui-container {
         min-height: calc(100vh - 160px);
       }
       .center {
@@ -95,56 +95,65 @@
           </button>
         </div>
       </div>
-      <div id="result" class="mdui-row" style="margin-top: 20px;display: none;">
-        <div class="mdui-col-xs-4">
-          <div class="mdui-card">
-            <div class="mdui-card-media">
-              <img data-order="0" />
-              <div class="mdui-card-media-covered">
-                <div class="mdui-card-primary">
-                  <div class="mdui-card-primary-title">名称</div>
-                  <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
+      <div id="result" style="margin-top: 20px;display: none;">
+        <div id="card-container" class="mdui-row">
+          <div class="mdui-col-xs-4">
+            <div class="mdui-card">
+              <div class="mdui-card-media">
+                <img data-order="0" />
+                <div class="mdui-card-media-covered">
+                  <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">名称</div>
+                    <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
+                  </div>
                 </div>
               </div>
+              <div class="mdui-card-actions mdui-card-actions-stacked">
+                <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
+              </div>
             </div>
-            <div class="mdui-card-actions mdui-card-actions-stacked">
-              <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
+          </div>
+          <div class="mdui-col-xs-4">
+            <div class="mdui-card">
+              <div class="mdui-card-media">
+                <img data-order="1" />
+                <div class="mdui-card-media-covered">
+                  <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">名称</div>
+                    <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mdui-card-actions mdui-card-actions-stacked">
+                <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
+              </div>
+            </div>
+          </div>
+          <div class="mdui-col-xs-4">
+            <div class="mdui-card">
+              <div class="mdui-card-media">
+                <img data-order="2" />
+                <div class="mdui-card-media-covered">
+                  <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">文字</div>
+                    <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mdui-card-actions mdui-card-actions-stacked">
+                <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="mdui-col-xs-4">
-          <div class="mdui-card">
-            <div class="mdui-card-media">
-              <img data-order="1" />
-              <div class="mdui-card-media-covered">
-                <div class="mdui-card-primary">
-                  <div class="mdui-card-primary-title">名称</div>
-                  <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
-                </div>
-              </div>
-            </div>
-            <div class="mdui-card-actions mdui-card-actions-stacked">
-              <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
-            </div>
+        <div class="mdui-row">
+          <div class="mdui-col-xs-12">
+            <button id="showother" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">
+              这些都不是?
+            </button>
           </div>
         </div>
-        <div class="mdui-col-xs-4">
-          <div class="mdui-card">
-            <div class="mdui-card-media">
-              <img data-order="2" />
-              <div class="mdui-card-media-covered">
-                <div class="mdui-card-primary">
-                  <div class="mdui-card-primary-title">文字</div>
-                  <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
-                </div>
-              </div>
-            </div>
-            <div class="mdui-card-actions mdui-card-actions-stacked">
-              <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
-            </div>
-          </div>
-        </div>
-        <button id="showother" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">这些都不是?</button>
+      </div>
     </div>
     <footer>
       <p>Powered By <a href="http://tjbaka.top">TJUGERKFER</a></p>
@@ -177,6 +186,10 @@
             window.question = identifior.getQuestion();
           });
           $$("#showother").on("click", e => {
+            $$("#showother")
+              .parent()
+              .find("button")
+              .prop("disabled", true);
             showResult(3);
           });
           $$("#reload").on("click", e => {
@@ -233,43 +246,49 @@
         });
       })();
       function showResult(ptr) {
+        if (ptr < 3) {
+          $$("#showother")
+            .parent()
+            .find("button")
+            .prop("disabled", false);
+        }
         $$(".mdui-col-offset-md-3")
           .parent()
           .find("button")
           .prop("disabled", true);
-        let resultCards = $$("#result").children();
+        let resultCards = $$("#card-container").children();
         for (let i = 0; i < resultCards.length; i++) {
           $$(resultCards[i])
             .find("img")
             .attr("src", "./loading.png");
         }
         $$("#result").show();
-          for (let i = 0; i < resultCards.length; i++) {
-            $$(resultCards[i])
-              .find(".mdui-card-primary-title")
-              .text(identifior.CharacterList[i+ptr].Name);
-            $$(resultCards[i])
-              .find(".mdui-card-primary-subtitle span")
-              .text(identifior.CharacterList[i+ptr].Score.toFixed(3) + "%");
-            $$(resultCards[i])
-              .find("a")
-              .attr("href", "https://thwiki.cc/" + identifior.CharacterList[i+ptr].Name);
-            let ImageName = images.filter(v => new RegExp(identifior.CharacterList[i+ptr].Name).test(v));
-            ImageName = ImageName[Math.floor(Math.random() * ImageName.length)];
-            $$.ajax({
-              dataType: "jsonp",
-              url:
-                "https://thwiki.cc/api.php?action=query&format=json&prop=imageinfo&titles=%E6%96%87%E4%BB%B6%3A" +
-                ImageName +
-                "&iiprop=url&iiextmetadatalanguage=zh&uselang=content&smaxage=300&maxage=300",
-              success(data) {
-                let URL = Object.values(data.query.pages)[0].imageinfo[0].url;
-                $$(resultCards[i])
-                  .find("img")
-                  .attr("src", URL);
-              }
-            });
-          }
+        for (let i = 0; i < resultCards.length; i++) {
+          $$(resultCards[i])
+            .find(".mdui-card-primary-title")
+            .text(identifior.CharacterList[i + ptr].Name);
+          $$(resultCards[i])
+            .find(".mdui-card-primary-subtitle span")
+            .text(identifior.CharacterList[i + ptr].Score.toFixed(3) + "%");
+          $$(resultCards[i])
+            .find("a")
+            .attr("href", "https://thwiki.cc/" + identifior.CharacterList[i + ptr].Name);
+          let ImageName = images.filter(v => new RegExp(identifior.CharacterList[i + ptr].Name).test(v));
+          ImageName = ImageName[Math.floor(Math.random() * ImageName.length)];
+          $$.ajax({
+            dataType: "jsonp",
+            url:
+              "https://thwiki.cc/api.php?action=query&format=json&prop=imageinfo&titles=%E6%96%87%E4%BB%B6%3A" +
+              ImageName +
+              "&iiprop=url&iiextmetadatalanguage=zh&uselang=content&smaxage=300&maxage=300",
+            success(data) {
+              let URL = Object.values(data.query.pages)[0].imageinfo[0].url;
+              $$(resultCards[i])
+                .find("img")
+                .attr("src", URL);
+            }
+          });
+        }
       }
       function you_baka() {
         $$(".mdui-col-offset-md-3")
