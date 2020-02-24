@@ -49,7 +49,8 @@ class Identifior {
     }
     CharData = Object.entries(CharData);
     for (let [name, data] of CharData) {
-      this.Characters[name].Weight = (this.Questions == AllQuestions ? (100 - this.Characters[name].Score) : 100) / data.reduce((a, b) => a + b);
+      this.Characters[name].Weight =
+        (this.Questions == AllQuestions ? 100 - this.Characters[name].Score : 100) / data.reduce((a, b) => a + b);
       this.Characters[name].Score = 0;
     }
   }
@@ -62,12 +63,14 @@ class Identifior {
         if (SingleQuestion.State < 0) {
           // No
           for (let characterName of SingleQuestion.NotInQuestionCharacters) {
-            this.Characters[characterName].Score += (1 / SingleQuestion.NotInQuestionCharacters.length) * this.Characters[characterName].Weight;
+            this.Characters[characterName].Score +=
+              (1 / SingleQuestion.NotInQuestionCharacters.length) * this.Characters[characterName].Weight;
           }
         } else if (SingleQuestion.State > 0) {
           // Yes
           for (let characterName of SingleQuestion.Characters) {
-            this.Characters[characterName].Score += (1 / SingleQuestion.Characters.length) * this.Characters[characterName].Weight;
+            this.Characters[characterName].Score +=
+              (1 / SingleQuestion.Characters.length) * this.Characters[characterName].Weight;
           }
         }
       }
@@ -75,6 +78,29 @@ class Identifior {
     } else {
       this.calcWeight(this.Questions); // 重新计算权值
     }
+    console.group(`第${this.askdQuestions.length}个问题`);
+    console.log(
+      "平均权值" +
+        this.CharacterList.reduce((a, b) => {
+          return a + b.Weight;
+        }, 0) /
+          this.CharacterList.length
+    );
+    let MaxWeight=this.CharacterList.reduce((a,b)=>{
+      if(b.Weight>a.Weight) {
+        return b
+      }
+      return a;
+    },{Weight:-Infinity})
+    console.log("最大权值" + MaxWeight.Weight + " " + MaxWeight.Name);
+    let MinWeight=this.CharacterList.reduce((a,b)=>{
+      if(b.Weight<a.Weight) {
+        return b
+      }
+      return a;
+    },{Weight:Infinity})
+    console.log("最小权值" + MinWeight.Weight + " " + MinWeight.Name);
+    console.groupEnd(`第${this.askdQuestions.length}个问题`);
     return question;
   }
   _getQuestion() {
