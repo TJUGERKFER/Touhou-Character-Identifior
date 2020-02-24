@@ -143,8 +143,8 @@
               <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
             </div>
           </div>
+        </div>
         <button id="showother" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">这些都不是?</button>
-      </div>
     </div>
     <footer>
       <p>Powered By <a href="http://tjbaka.top">TJUGERKFER</a></p>
@@ -238,23 +238,23 @@
           .find("button")
           .prop("disabled", true);
         let resultCards = $$("#result").children();
-        for (let i = ptr; i < resultCards.length + ptr; i++) {
-          $$(resultCards[i-ptr])
+        for (let i = 0; i < resultCards.length; i++) {
+          $$(resultCards[i])
             .find("img")
             .attr("src", "./loading.png");
         }
         $$("#result").show();
-          for (let i = ptr; i < resultCards.length + ptr; i++) {
-            $$(resultCards[i-ptr])
+          for (let i = 0; i < resultCards.length; i++) {
+            $$(resultCards[i])
               .find(".mdui-card-primary-title")
-              .text(identifior.CharacterList[i].Name);
-            $$(resultCards[i-ptr])
+              .text(identifior.CharacterList[i+ptr].Name);
+            $$(resultCards[i])
               .find(".mdui-card-primary-subtitle span")
-              .text(identifior.CharacterList[i].Score.toFixed(3) + "%");
-            $$(resultCards[i-ptr])
+              .text(identifior.CharacterList[i+ptr].Score.toFixed(3) + "%");
+            $$(resultCards[i])
               .find("a")
-              .attr("href", "https://thwiki.cc/" + identifior.CharacterList[i].Name);
-            let ImageName = images.filter(v => new RegExp(identifior.CharacterList[i].Name).test(v));
+              .attr("href", "https://thwiki.cc/" + identifior.CharacterList[i+ptr].Name);
+            let ImageName = images.filter(v => new RegExp(identifior.CharacterList[i+ptr].Name).test(v));
             ImageName = ImageName[Math.floor(Math.random() * ImageName.length)];
             $$.ajax({
               dataType: "jsonp",
@@ -264,7 +264,7 @@
                 "&iiprop=url&iiextmetadatalanguage=zh&uselang=content&smaxage=300&maxage=300",
               success(data) {
                 let URL = Object.values(data.query.pages)[0].imageinfo[0].url;
-                $$(resultCards[i-ptr])
+                $$(resultCards[i])
                   .find("img")
                   .attr("src", URL);
               }
