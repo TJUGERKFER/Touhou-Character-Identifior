@@ -49,7 +49,7 @@ class Identifior {
     }
     CharData = Object.entries(CharData);
     for (let [name, data] of CharData) {
-      this.Characters[name].Weight = 100 / data.reduce((a, b) => a + b);
+      this.Characters[name].Weight = (this.Questions == AllQuestions ? (100 - this.Characters[name].Score) : 100) / data.reduce((a, b) => a + b);
       this.Characters[name].Score = 0;
     }
   }
@@ -72,6 +72,8 @@ class Identifior {
         }
       }
       this.CharacterList.sort((a, b) => b.Score - a.Score);
+    } else {
+      this.calcWeight(this.Questions); // 重新计算权值
     }
     return question;
   }
