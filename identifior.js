@@ -80,36 +80,36 @@ class Identifior {
     } else {
       this.calcWeight(this.Questions); // 重新计算权值
       this.askdQuestions.push(this.Questions.splice(this.Questions.indexOf(ChoiceQuestion), 1)[0]);
+      console.group(`第${this.askdQuestions.length}个问题`);
+      console.log(
+        "平均权值" +
+          this.CharacterList.reduce((a, b) => {
+            return a + b.Weight;
+          }, 0) /
+            this.CharacterList.length
+      );
+      let MaxWeight = this.CharacterList.reduce(
+        (a, b) => {
+          if (b.Weight > a.Weight) {
+            return b;
+          }
+          return a;
+        },
+        { Weight: -Infinity }
+      );
+      console.log("最大权值" + MaxWeight.Weight + " " + MaxWeight.Name);
+      let MinWeight = this.CharacterList.reduce(
+        (a, b) => {
+          if (b.Weight < a.Weight) {
+            return b;
+          }
+          return a;
+        },
+        { Weight: Infinity }
+      );
+      console.log("最小权值" + MinWeight.Weight + " " + MinWeight.Name);
+      console.groupEnd(`第${this.askdQuestions.length}个问题`);
     }
-    console.group(`第${this.askdQuestions.length}个问题`);
-    console.log(
-      "平均权值" +
-        this.CharacterList.reduce((a, b) => {
-          return a + b.Weight;
-        }, 0) /
-          this.CharacterList.length
-    );
-    let MaxWeight = this.CharacterList.reduce(
-      (a, b) => {
-        if (b.Weight > a.Weight) {
-          return b;
-        }
-        return a;
-      },
-      { Weight: -Infinity }
-    );
-    console.log("最大权值" + MaxWeight.Weight + " " + MaxWeight.Name);
-    let MinWeight = this.CharacterList.reduce(
-      (a, b) => {
-        if (b.Weight < a.Weight) {
-          return b;
-        }
-        return a;
-      },
-      { Weight: Infinity }
-    );
-    console.log("最小权值" + MinWeight.Weight + " " + MinWeight.Name);
-    console.groupEnd(`第${this.askdQuestions.length}个问题`);
     return ChoiceQuestion;
   }
   _getQuestion() {
