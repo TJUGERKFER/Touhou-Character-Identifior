@@ -216,6 +216,7 @@
         dataType: "json"
       });
       function reload() {
+        isbaka=false;
         $$("#result").hide();
         window.identifior = new Identifior();
         window.identifior.load().then(() => {
@@ -246,6 +247,10 @@
         });
       })();
       function showResult(ptr) {
+        if(isbaka){
+          you_baka();
+          return;
+        }
         if (ptr < 3) {
           $$("#showother")
             .parent()
@@ -291,6 +296,7 @@
         }
       }
       function you_baka() {
+        isbaka=true;
         $$(".mdui-col-offset-md-3")
           .parent()
           .find("button")
