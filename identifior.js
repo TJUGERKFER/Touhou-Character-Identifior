@@ -1,7 +1,7 @@
 class Identifior {
   constructor() {
     this.SpecialIndex = 0;
-    this.__QuestionSpilt = 0.5;
+    this.__QuestionSpilt = 0.7;
   }
   async load() {
     await fetch("./data.json")
