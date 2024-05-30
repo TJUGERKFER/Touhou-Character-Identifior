@@ -23,7 +23,7 @@
     <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '夜间模式'}" id="brightness">
       <i class="mdui-icon material-icons">brightness_2</i>
     </span>
-    <a href="https://github.com/TJUGERKFER/Touhou-Character-Identifior" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '前往github'}" id="togithub">
+    <a href="https://github.com/TJUGERKFER/Touhou-Character-Identifior" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '前往项目主页'}" id="togithub">
       <i class="mdui-icon material-icons github-icon fa fa-github"></i>
     </a>
   </div>
@@ -173,7 +173,8 @@
       .prop("disabled", false);
   });
   $("#showResult").on("click", e => {
-    identifior.calResult();
+    identifior.calScore();
+    identifior.calConf();
     showResult(0);
   });
   $("#help").on("click", e => {
