@@ -5,13 +5,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
   <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
   <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
   <script src="./identifior_v2.js"></script>
+  <link rel="shortcut icon" href="./img/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
   <title>
     车万角色确定系统
   </title>
 </head>
-
 <body class="mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container">
   <div class="mdui-toolbar">
     <span class="mdui-typo-title">车万角色确定系统</span>
@@ -22,6 +23,9 @@
     <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '夜间模式'}" id="brightness">
       <i class="mdui-icon material-icons">brightness_2</i>
     </span>
+    <a href="https://github.com/TJUGERKFER/Touhou-Character-Identifior" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '前往github'}" id="togithub">
+      <i class="mdui-icon material-icons github-icon fa fa-github"></i>
+    </a>
   </div>
   <div id="result" style="display: none;" class="mdui-card">
     <div class="mdui-card-header">
@@ -183,6 +187,9 @@
     showResult(3);
   });
   function showResult(ptr) {
+    $("#answerGroup")
+      .find("button")
+      .prop("disabled", true);
     if (ptr < 3) {
       $("#showother")
         .parent()
@@ -197,7 +204,7 @@
     for (let i = 0; i < resultCards.length; i++) {
       $(resultCards[i])
         .find("img")
-        .attr("src", "./loading.png");
+        .attr("src", "./img/loading.png");
     }
     $("#result").show();
     for (let i = 0; i < resultCards.length; i++) {
@@ -206,7 +213,7 @@
         .text(identifior.charList[i + ptr].name);
       $(resultCards[i])
         .find(".mdui-card-primary-subtitle span")
-        .text((identifior.charList[i + ptr].score * 100).toFixed(2) + "%");
+        .text((identifior.charList[i + ptr].conf * 100).toFixed(2) + "%");
       $(resultCards[i])
         .find("a")
         .attr("href", "https://thwiki.cc/" + identifior.charList[i + ptr].name);
