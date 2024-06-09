@@ -215,10 +215,12 @@
       }
       $("#result").show();
       for (let i = 0; i < resultCards.length; i++) {
+        let span = $(resultCards[i]).find(".mdui-card-primary-subtitle span");
+        span.text("");
         $(resultCards[i])
           .find(".mdui-card-primary-title")
           .text(identifior.charList[i + ptr].name);
-        $($(resultCards[i]).find(".mdui-card-primary-subtitle span")[0]).text(
+        $(span[0]).text(
           (identifior.charList[i + ptr].conf * 100).toFixed(2) + "%"
         );
         $(resultCards[i])
@@ -250,8 +252,9 @@
             let imageElement = page.textContent.match(/\[\[(文件:{{立绘获取}}|缩略图|.*?)\]\]/)[1];
             if (imageElement) {
               imageElement = imageElement.replace(/\|\d+px/g, "");
+              imageElement = imageElement.replace(/\|[左中右上下]+/g, "");
               let FileArg = imageElement.split("|");
-              if (FileArg.length >= 4) {
+              if (FileArg.length >= 3) {
                 $($(resultCards[i]).find(".mdui-card-primary-subtitle span")[1]).text(FileArg.pop());
               }
             }
