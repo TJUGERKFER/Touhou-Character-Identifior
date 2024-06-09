@@ -1,244 +1,263 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-  <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-  <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
-  <script src="./identifior_v2.js"></script>
-  <link rel="shortcut icon" href="./img/favicon.ico" mce_href="/favicon.ico" type="image/x-icon">
-  <title>
-    车万角色确定系统
-  </title>
-</head>
-<body class="mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container">
-  <div class="mdui-toolbar">
-    <span class="mdui-typo-title">车万角色确定系统</span>
-    <div class="mdui-toolbar-spacer"></div>
-    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '说明'}" id="help">
-      <i class="mdui-icon material-icons">help</i>
-    </span>
-    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '夜间模式'}" id="brightness">
-      <i class="mdui-icon material-icons">brightness_2</i>
-    </span>
-    <a href="https://github.com/TJUGERKFER/Touhou-Character-Identifior" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '前往项目主页'}" id="togithub">
-      <i class="mdui-icon material-icons github-icon fa fa-github"></i>
-    </a>
-  </div>
-  <div id="result" style="display: none;" class="mdui-card">
-    <div class="mdui-card-header">
-      <p class="mdui-card-primary-title mdui-text-center">结果</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" />
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="./identifior_v2.js"></script>
+    <link rel="shortcut icon" href="./img/favicon.ico" mce_href="/favicon.ico" type="image/x-icon" />
+    <title>车万角色确定系统</title>
+    <script>
+      let helptext =
+        "<p>本项目最初设计为让作者的一般通过朋友看见东方图后通过回答问题来描述外貌的方式快速确定角色，但是这项目做着做着就变成这样了(</p><p>使用方式：当遇到不认识的东方角色时，对照角色的外貌回答系统提出的问题，系统会给出与描述最匹配的角色。</p><p>角色范围：新作及出版物中的女性角色（th06-th19）</p><p>免责声明：项目使用到的图片以及其他素材版权均归原作者所有，另：二创风格千变万化，不保证能定位到正确角色，仅供娱乐！";
+      window.addEventListener("load", () => {
+        if (!localStorage.getItem("firstVisit")) {
+          localStorage.setItem("firstVisit", true);
+          mdui.alert(helptext, "说明");
+        }
+      });
+    </script>
+  </head>
+  <body class="mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container">
+    <div class="mdui-toolbar">
+      <span class="mdui-typo-title">车万角色确定系统</span>
+      <div class="mdui-toolbar-spacer"></div>
+      <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '说明'}" id="help">
+        <i class="mdui-icon material-icons">help</i>
+      </span>
+      <span
+        class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+        mdui-tooltip="{content: '夜间模式'}"
+        id="brightness">
+        <i class="mdui-icon material-icons">brightness_2</i>
+      </span>
+      <a
+        href="https://github.com/TJUGERKFER/Touhou-Character-Identifior"
+        class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+        mdui-tooltip="{content: '前往项目主页'}"
+        id="togithub">
+        <i class="mdui-icon material-icons github-icon fa fa-github"></i>
+      </a>
     </div>
-    <div class="mdui-card-primary">
-      <div class="mdui-row">
-        <div id="card-container" class=" mdui-col-xs-12 mdui-col-md-8 mdui-col-offset-md-2">
-          <div class="mdui-col-xs-12 mdui-col-md-4 mdui-m-y-1">
-            <div class="mdui-card">
-              <div class="mdui-card-media">
-                <img data-order="0" />
-                <div class="mdui-card-media-covered">
-                  <div class="mdui-card-primary">
-                    <div class="mdui-card-primary-title">名称</div>
-                    <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
+    <div id="result" style="display: none" class="mdui-card">
+      <div class="mdui-card-header">
+        <p class="mdui-card-primary-title mdui-text-center">结果</p>
+      </div>
+      <div class="mdui-card-primary">
+        <div class="mdui-row">
+          <div id="card-container" class="mdui-col-xs-12 mdui-col-md-8 mdui-col-offset-md-2">
+            <div class="mdui-col-xs-12 mdui-col-md-4 mdui-m-y-1">
+              <div class="mdui-card">
+                <div class="mdui-card-media">
+                  <img data-order="0" />
+                  <div class="mdui-card-media-covered">
+                    <div class="mdui-card-primary">
+                      <div class="mdui-card-primary-title">名称</div>
+                      <div class="mdui-card-primary-subtitle">可信度:<span></span> <span class="remark"></span></div>
+                    </div>
                   </div>
                 </div>
+                <div class="mdui-card-actions mdui-card-actions-stacked">
+                  <a class="mdui-btn mdui-ripple mdui-btn-block" target="_blank">前往THBWIKI</a>
+                </div>
               </div>
-              <div class="mdui-card-actions mdui-card-actions-stacked">
-                <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-md-4 mdui-m-y-1">
+              <div class="mdui-card">
+                <div class="mdui-card-media">
+                  <img data-order="1" />
+                  <div class="mdui-card-media-covered">
+                    <div class="mdui-card-primary">
+                      <div class="mdui-card-primary-title">名称</div>
+                      <div class="mdui-card-primary-subtitle">可信度:<span></span> <span class="remark"></span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mdui-card-actions mdui-card-actions-stacked">
+                  <a class="mdui-btn mdui-ripple mdui-btn-block" target="_blank">前往THBWIKI</a>
+                </div>
+              </div>
+            </div>
+            <div class="mdui-col-xs-12 mdui-col-md-4 mdui-m-y-1">
+              <div class="mdui-card">
+                <div class="mdui-card-media">
+                  <img data-order="2" />
+                  <div class="mdui-card-media-covered">
+                    <div class="mdui-card-primary">
+                      <div class="mdui-card-primary-title">文字</div>
+                      <div class="mdui-card-primary-subtitle">可信度:<span></span> <span class="remark"></span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mdui-card-actions mdui-card-actions-stacked">
+                  <a class="mdui-btn mdui-ripple mdui-btn-block" target="_blank">前往THBWIKI</a>
+                </div>
+              </div>
+            </div>
+            <div class="mdui-row">
+              <div class="mdui-col-xs-12 mdui-m-y-1">
+                <button
+                  id="showother"
+                  class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block">
+                  这些都不是?
+                </button>
               </div>
             </div>
           </div>
-          <div class="mdui-col-xs-12 mdui-col-md-4 mdui-m-y-1">
-            <div class="mdui-card">
-              <div class="mdui-card-media">
-                <img data-order="1" />
-                <div class="mdui-card-media-covered">
-                  <div class="mdui-card-primary">
-                    <div class="mdui-card-primary-title">名称</div>
-                    <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mdui-card-actions mdui-card-actions-stacked">
-                <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
-              </div>
+        </div>
+      </div>
+    </div>
+    <div id="question_card" class="mdui-card mdui-m-y-1">
+      <div class="mdui-card-header">
+        <div class="mdui-progress">
+          <div class="mdui-progress-determinate" id="answerProgress" style="width: 0%"></div>
+        </div>
+        <p class="mdui-card-primary-title">问题：</p>
+        <p class="mdui-card-primary-subtitle" id="question"></p>
+      </div>
+      <div class="mdui-card-primary">
+        <div class="mdui-col-xs-12 mdui-col-md-8 mdui-col-offset-md-2 mdui-m-y-1">
+          <div class="mdui-row" id="answerGroup" style="margin-top: 35px">
+            <div id="yes" class="mdui-col-xs-4">
+              <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block">是</button>
+            </div>
+            <div id="noidea" class="mdui-col-xs-4">
+              <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block">
+                不清楚
+              </button>
+            </div>
+            <div id="no" class="mdui-col-xs-4">
+              <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block">否</button>
             </div>
           </div>
-          <div class="mdui-col-xs-12 mdui-col-md-4 mdui-m-y-1">
-            <div class="mdui-card">
-              <div class="mdui-card-media">
-                <img data-order="2" />
-                <div class="mdui-card-media-covered">
-                  <div class="mdui-card-primary">
-                    <div class="mdui-card-primary-title">文字</div>
-                    <div class="mdui-card-primary-subtitle">可信度:<span></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="mdui-card-actions mdui-card-actions-stacked">
-                <a class="mdui-btn mdui-ripple mdui-btn-block">前往THBWIKI</a>
-              </div>
+          <div class="mdui-row" id="controlGroup" style="margin-top: 20px">
+            <div class="mdui-col-xs-6">
+              <button id="reload" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block">
+                重新开始
+              </button>
             </div>
-          </div>
-          <div class="mdui-row">
-            <div class="mdui-col-xs-12 mdui-m-y-1">
-              <button id="showother"
-                class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">
-                这些都不是?
+            <div class="mdui-col-xs-6">
+              <button
+                id="showResult"
+                class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block">
+                不想点了，显示结果
               </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div id="question_card" class="mdui-card mdui-m-y-1">
-    <div class="mdui-card-header">
-      <div class="mdui-progress">
-        <div class="mdui-progress-determinate" id="answerProgress" style="width: 0%;"></div>
-      </div>
-      <p class="mdui-card-primary-title">问题：</p>
-      <p class="mdui-card-primary-subtitle" id="question"></p>
-    </div>
-    <div class="mdui-card-primary">
-      <div class=" mdui-col-xs-12 mdui-col-md-8 mdui-col-offset-md-2 mdui-m-y-1">
-        <div class="mdui-row" id="answerGroup" style="margin-top: 35px;">
-          <div id="yes" class="mdui-col-xs-4">
-            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">是</button>
-          </div>
-          <div id="noidea" class="mdui-col-xs-4">
-            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">不清楚</button>
-          </div>
-          <div id="no" class=" mdui-col-xs-4">
-            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">否</button>
-          </div>
-        </div>
-        <div class="mdui-row" id="controlGroup" style="margin-top: 20px;">
-          <div class="mdui-col-xs-6">
-            <button id="reload" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">
-              重新开始
-            </button>
-          </div>
-          <div class="mdui-col-xs-6">
-            <button id="showResult"
-              class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block ">
-              不想点了，显示结果
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <p>Powered By <a href="https://tjsite.cn">TJUGERKFER</a></p>
-    <p>
-      技术支持:<a href="https://www.winsloweric.cn">WinslowEric</a> <a
-        href="https://github.com/bbaa-bbaa">BbAa</a>;图片API来自<a href="https://thwiki.cc">THBWiki</a>,图片版权归原作者所有
-    </p>
-  </footer>
-</body>
-<script>
-  var $ = mdui.$;
-  var light = true
-  var helptext = "<p>本项目最初设计为让作者的一般通过朋友看见东方图后通过回答问题来描述外貌的方式快速确定角色，但是这项目做着做着就变成这样了(</p><p>使用方式：当遇到不认识的东方角色时，对照角色的外貌回答系统提出的问题，系统会给出与描述最匹配的角色。</p><p>角色范围：新作及出版物中的女性角色（th06-th19）</p><p>免责声明：项目使用到的图片以及其他素材版权均归原作者所有，另：二创风格千变万化，不保证能定位到正确角色，仅供娱乐！"
-  $("#brightness").on("click", e => {
-    light = !light;
-    if (light) {
-      $("body")[0].className = "mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container"
-      $('#brightness').innerHTML = "brightness_2"
-      return;
-    }
-    $("body")[0].className = "mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container mdui-theme-layout-dark"
-    $('#brightness').innerHTML = "wb_sunny"
-  });
-  $("#yes").on("click", e => {
-    noideacombo = 0;
-    identifior.yes();
-  });
-  $("#no").on("click", e => {
-    noideacombo = 0;
-    identifior.no();
-  });
-  $("#noidea").on("click", e => {
-    //noideacombo++;
-    identifior.noidea();
-  });
-  $("#reload").on("click", e => {
-    identifior.initRawData();
-    $("#result").hide();
-    $("#answerGroup")
-      .find("button")
-      .prop("disabled", false);
-  });
-  $("#showResult").on("click", e => {
-    identifior.calScore();
-    identifior.calConf();
-    showResult(0);
-  });
-  $("#help").on("click", e => {
-    mdui.alert(helptext, "说明")
-  });
-  $("#showother").on("click", e => {
-    $("#showother")
-      .parent()
-      .find("button")
-      .prop("disabled", true);
-    showResult(3);
-  });
-  function showResult(ptr) {
-    $("#answerGroup")
-      .find("button")
-      .prop("disabled", true);
-    if (ptr < 3) {
-      $("#showother")
-        .parent()
-        .find("button")
-        .prop("disabled", false);
-    }
-    $(".mdui-col-md-2")
-      .parent()
-      .find("button")
-      .prop("disabled", true);
-    let resultCards = $("#card-container").children();
-    for (let i = 0; i < resultCards.length; i++) {
-      $(resultCards[i])
-        .find("img")
-        .attr("src", "./img/loading.png");
-    }
-    $("#result").show();
-    for (let i = 0; i < resultCards.length; i++) {
-      $(resultCards[i])
-        .find(".mdui-card-primary-title")
-        .text(identifior.charList[i + ptr].name);
-      $(resultCards[i])
-        .find(".mdui-card-primary-subtitle span")
-        .text((identifior.charList[i + ptr].conf * 100).toFixed(2) + "%");
-      $(resultCards[i])
-        .find("a")
-        .attr("href", "https://thwiki.cc/" + identifior.charList[i + ptr].name);
+    <footer>
+      <p>Powered By <a href="https://tjsite.cn">TJUGERKFER</a></p>
+      <p>
+        技术支持:<a href="https://www.winsloweric.cn">WinslowEric</a>
+        <a href="https://github.com/bbaa-bbaa">BbAa</a>;图片API来自<a href="https://thwiki.cc">THBWiki</a
+        >,图片版权归原作者所有
+      </p>
+    </footer>
+  </body>
+  <script>
+    var $ = mdui.$;
+    var light = true;
+    $("#brightness").on("click", e => {
+      light = !light;
+      if (light) {
+        $("body")[0].className = "mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container";
+        $("#brightness").innerHTML = "brightness_2";
+        return;
+      }
+      $("body")[0].className =
+        "mdui-theme-primary-cyan mdui-theme-accent-light-blue mdui-container mdui-theme-layout-dark";
+      $("#brightness").innerHTML = "wb_sunny";
+    });
+    $("#yes").on("click", e => {
+      noideacombo = 0;
+      identifior.yes();
+    });
+    $("#no").on("click", e => {
+      noideacombo = 0;
+      identifior.no();
+    });
+    $("#noidea").on("click", e => {
+      //noideacombo++;
+      identifior.noidea();
+    });
+    $("#reload").on("click", e => {
+      identifior.initRawData();
+      $("#result").hide();
+      $("#answerGroup").find("button").prop("disabled", false);
+    });
+    $("#showResult").on("click", e => {
+      identifior.calScore();
+      identifior.calConf();
+      showResult(0);
+    });
+    $("#help").on("click", e => {
+      mdui.alert(helptext, "说明");
+    });
+    $("#showother").on("click", e => {
+      $("#showother").parent().find("button").prop("disabled", true);
+      showResult(3);
+    });
+    function showResult(ptr) {
+      $("#answerGroup").find("button").prop("disabled", true);
+      if (ptr < 3) {
+        $("#showother").parent().find("button").prop("disabled", false);
+      }
+      $(".mdui-col-md-2").parent().find("button").prop("disabled", true);
+      let resultCards = $("#card-container").children();
+      for (let i = 0; i < resultCards.length; i++) {
+        $(resultCards[i]).find("img").attr("src", "./img/loading.png");
+      }
+      $("#result").show();
+      for (let i = 0; i < resultCards.length; i++) {
+        $(resultCards[i])
+          .find(".mdui-card-primary-title")
+          .text(identifior.charList[i + ptr].name);
+        $($(resultCards[i]).find(".mdui-card-primary-subtitle span")[0]).text(
+          (identifior.charList[i + ptr].conf * 100).toFixed(2) + "%"
+        );
+        $(resultCards[i])
+          .find("a")
+          .attr("href", "https://thwiki.cc/" + identifior.charList[i + ptr].name);
+      }
+      let queryname = identifior.charList.slice(ptr, ptr + 3).map(a => a.name);
       $.ajax({
         dataType: "json",
         url:
           "https://thwiki.cc/api.php?action=query&prop=pageimages&titles=" +
-          identifior.charList[i + ptr].name +
-          "&format=json&origin=*",
+          queryname.join("|") +
+          "&export=true&piprop=original&format=json&origin=*",
         success(data) {
-          let URL = Object.values(data.query.pages)[0].thumbnail.source.match(/^(.*?)(\.jpg|\.png)/)[0];
-          $(resultCards[i])
-            .find("img")
-            .attr("src", URL);
+          let pages = Object.values(data.query.pages);
+          for (let page of pages) {
+            let i = queryname.indexOf(page.title);
+            let img = $(resultCards[i]).find("img");
+            if (page.original) {
+              img.attr("src", page.original.source);
+            }
+          }
+          let xmlData = Object.values(data.query.export)[0];
+          let xmlDom = new DOMParser().parseFromString(xmlData, "application/xml");
+          let xmlPages = xmlDom.querySelectorAll("page");
+          for (let page of xmlPages) {
+            let title = page.querySelector("title").textContent.trim();
+            let i = queryname.indexOf(title);
+            let imageElement = page.textContent.match(/\[\[(文件:{{立绘获取}}|缩略图|.*?)\]\]/)[1];
+            if (imageElement) {
+              imageElement = imageElement.replace(/\|\d+px/g, "");
+              let FileArg = imageElement.split("|");
+              if (FileArg.length >= 4) {
+                $($(resultCards[i]).find(".mdui-card-primary-subtitle span")[1]).text(FileArg.pop());
+              }
+            }
+          }
         }
       });
     }
-  }
-  window.onload = () => {
-    if (!localStorage.getItem('firstVisit')) {
-      localStorage.setItem('firstVisit', true);
-      mdui.alert(helptext, "说明")
-    }
-  }
-</script>
-
+  </script>
 </html>
