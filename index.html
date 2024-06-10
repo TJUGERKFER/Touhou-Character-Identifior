@@ -17,7 +17,7 @@
       window.addEventListener("load", () => {
         if (!localStorage.getItem("firstVisit")) {
           localStorage.setItem("firstVisit", true);
-          mdui.alert(helptext, "说明");
+          mdui.alert(helptext, "说明", () => {},{history:false})
         }
       });
     </script>
